@@ -20,7 +20,7 @@ const profile = {
   location: 'sidePanel',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/run.html',
   version: packageJson.version,
-  maintainedBy: 'Remix',
+  maintainedBy: 'aelf Studio',
   permission: true,
   events: ['newTransaction'],
   methods: [
@@ -232,15 +232,15 @@ export class RunTab extends ViewPlugin {
     }
 
     // VM    
-    const titleVM = 'Execution environment is local to Remix.  Data is only saved to browser memory and will vanish upon reload.'
-    await addProvider(1, 'vm-cancun', 'Remix VM (Cancun)', false, true, 'cancun', 'settingsVMCancunMode', titleVM)
-    await addProvider(50, 'vm-shanghai', 'Remix VM (Shanghai)', false, true, 'shanghai', 'settingsVMShanghaiMode', titleVM)
-    await addProvider(51, 'vm-paris', 'Remix VM (Paris)', false, true, 'paris', 'settingsVMParisMode', titleVM)
-    await addProvider(52, 'vm-london', 'Remix VM (London)', false, true, 'london', 'settingsVMLondonMode', titleVM)
-    await addProvider(53, 'vm-berlin', 'Remix VM (Berlin)', false, true, 'berlin', 'settingsVMBerlinMode', titleVM)
-    await addProvider(2, 'vm-mainnet-fork', 'Remix VM - Mainnet fork', false, true, 'cancun', 'settingsVMMainnetMode', titleVM, true)
-    await addProvider(3, 'vm-sepolia-fork', 'Remix VM - Sepolia fork', false, true, 'cancun', 'settingsVMSepoliaMode', titleVM, true)
-    await addProvider(4, 'vm-custom-fork', 'Remix VM - Custom fork', false, true, '', 'settingsVMCustomMode', titleVM, true)
+    const titleVM = 'Execution environment is local to aelf Studio.  Data is only saved to browser memory and will vanish upon reload.'
+    await addProvider(1, 'vm-cancun', 'aelf Studio VM (Cancun)', false, true, 'cancun', 'settingsVMCancunMode', titleVM)
+    await addProvider(50, 'vm-shanghai', 'aelf Studio VM (Shanghai)', false, true, 'shanghai', 'settingsVMShanghaiMode', titleVM)
+    await addProvider(51, 'vm-paris', 'aelf Studio VM (Paris)', false, true, 'paris', 'settingsVMParisMode', titleVM)
+    await addProvider(52, 'vm-london', 'aelf Studio VM (London)', false, true, 'london', 'settingsVMLondonMode', titleVM)
+    await addProvider(53, 'vm-berlin', 'aelf Studio VM (Berlin)', false, true, 'berlin', 'settingsVMBerlinMode', titleVM)
+    await addProvider(2, 'vm-mainnet-fork', 'aelf Studio VM - Mainnet fork', false, true, 'cancun', 'settingsVMMainnetMode', titleVM, true)
+    await addProvider(3, 'vm-sepolia-fork', 'aelf Studio VM - Sepolia fork', false, true, 'cancun', 'settingsVMSepoliaMode', titleVM, true)
+    await addProvider(4, 'vm-custom-fork', 'aelf Studio VM - Custom fork', false, true, '', 'settingsVMCustomMode', titleVM, true)
 
     // wallet connect
     await addProvider(6, 'walletconnect', 'WalletConnect', false, false)

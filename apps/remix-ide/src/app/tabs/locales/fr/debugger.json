@@ -8,7 +8,7 @@
   "debugger.debugLocaNodeLabel": "Forcer l'utilisation d'un noeud local",
   "debugger.useGeneratedSources": "Utiliser les sources générées",
   "debugger.debugWithGeneratedSources": "Si cette option est cochée, le débogueur passera également à travers le fichier .yul compilé s'il existe.",
-  "debugger.introduction": "Lors du débogage avec un hash de transaction, si le contrat est vérifié, Remix essaiera de récupérer le code source de Sourcify ou Etherscan. Insérez votre clé d'API Etherscan dans les paramètres de Remix. Veuillez verifier les réseaux pris en charge",
+  "debugger.introduction": "Lors du débogage avec un hash de transaction, si le contrat est vérifié, aelf Studio essaiera de récupérer le code source de Sourcify ou Etherscan. Insérez votre clé d'API Etherscan dans les paramètres de aelf Studio. Veuillez verifier les réseaux pris en charge",
   "debugger.forceToUseCurrentLocalNode": "Forcer le débogueur à utiliser le noeud local actuel",
   "debugger.sourceLocationStatus1": "Localisation du point d'arrêt, cela peut prendre un moment...",
   "debugger.sourceLocationStatus2": "L'emplacement de la source n'est pas disponible, ni dans Sourcify ni dans Etherscan. Veuillez vous assurer que la clé d'api Etherscan est fournie dans les paramètres.",

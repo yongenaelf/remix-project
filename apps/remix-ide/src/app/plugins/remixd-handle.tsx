@@ -21,7 +21,7 @@ const profile = {
   kind: 'other',
   version: packageJson.version,
   repo: 'https://github.com/ethereum/remix-project/tree/master/libs/remixd',
-  maintainedBy: 'Remix',
+  maintainedBy: 'aelf Studio',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/remixd.html',
   authorContact: ''
 }

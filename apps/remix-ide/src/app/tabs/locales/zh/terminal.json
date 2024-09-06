@@ -1,6 +1,6 @@
 {
   "terminal.listen": "监听所有交易",
-  "terminal.listenTitle": "如果选中，Remix 将监听在当前环境中挖掘到的所有交易，而不仅仅是您创建的交易",
+  "terminal.listenTitle": "如果选中，aelf Studio 将监听在当前环境中挖掘到的所有交易，而不仅仅是您创建的交易",
   "terminal.search": "按交易哈希或地址搜索",
   "terminal.used": "已使用",
   "terminal.debug": "调试",
@@ -22,7 +22,7 @@
   "terminal.toasterMsg1": "没有要执行的内容",
   "terminal.toasterMsg2": "找不到路径 {fileName} 的 provider",
   "terminal.vmMode": "VM 模式",
-  "terminal.vmModeMsg": "无法调试此调用。调试调用只能在 Remix VM 模式下进行。",
+  "terminal.vmModeMsg": "无法调试此调用。调试调用只能在 aelf Studio VM 模式下进行。",
   "terminal.ok": "确认",
   "terminal.cancel": "取消",
   "terminal.callWarning": "(当被一个合约调用是才需要费用)",

@@ -1,7 +1,7 @@
 {
   "terminal.listen": "Listen on all transactions",
   "terminal.listenVM": "Listen on all transactions is disabled for VM environment",
-  "terminal.listenTitle": "If checked Remix will listen on all transactions mined in the current environment and not only transactions created by you",
+  "terminal.listenTitle": "If checked aelf Studio will listen on all transactions mined in the current environment and not only transactions created by you",
   "terminal.search": "Filter with transaction hash or address",
   "terminal.used": "used",
   "terminal.debug": "Debug",
@@ -23,7 +23,7 @@
   "terminal.toasterMsg1": "no content to execute",
   "terminal.toasterMsg2": "provider for path {fileName} not found",
   "terminal.vmMode": "VM mode",
-  "terminal.vmModeMsg": "Cannot debug this call. Debugging calls is only possible in Remix VM mode.",
+  "terminal.vmModeMsg": "Cannot debug this call. Debugging calls is only possible in aelf Studio VM mode.",
   "terminal.ok": "Ok",
   "terminal.cancel": "Cancel",
   "terminal.callWarning": "(Cost only applies when called by a contract)",

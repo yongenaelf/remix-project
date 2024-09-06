@@ -39,7 +39,7 @@ export const Preload = (props: any) => {
       })
       .catch((err) => {
         _paq.push(['trackEvent', 'Preload', 'error', err && err.message])
-        console.error('Error loading Remix:', err)
+        console.error('Error loading aelf Studio:', err)
         setError(true)
       })
   }
@@ -129,7 +129,7 @@ export const Preload = (props: any) => {
         </div>
         {!supported ? (
           <div className="preload-info-container alert alert-warning">
-            Your browser does not support any of the filesystems required by Remix. Either change the settings in your browser or use a supported browser.
+            Your browser does not support any of the filesystems required by aelf Studio. Either change the settings in your browser or use a supported browser.
           </div>
         ) : null}
         {error ? (

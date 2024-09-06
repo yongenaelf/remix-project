@@ -133,7 +133,7 @@
   "filePanel.validationError": "Validation Error",
   "filePanel.validationErrorMsg": "Special characters are not allowed",
   "filePanel.reservedKeyword": "Reserved Keyword",
-  "filePanel.reservedKeywordMsg": "File name contains Remix reserved keywords. \"{content}\"",
+  "filePanel.reservedKeywordMsg": "File name contains aelf Studio reserved keywords. \"{content}\"",
   "filePanel.moveFile": "Moving files",
   "filePanel.moveFileMsg1": "Are you sure you want to move {src} to {dest}?",
   "filePanel.movingFileFailed": "Moving File Failed",

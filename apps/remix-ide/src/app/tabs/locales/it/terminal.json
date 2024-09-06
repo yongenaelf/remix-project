@@ -1,6 +1,6 @@
 {
   "terminal.listen": "ascolta su tutte le transazioni",
-  "terminal.listenTitle": "Se è selezionato, Remix ascolterà tutte le transazioni generate nell'environment attuale e non solo quelle create da te",
+  "terminal.listenTitle": "Se è selezionato, aelf Studio ascolterà tutte le transazioni generate nell'environment attuale e non solo quelle create da te",
   "terminal.search": "Cercare con hash o indirizzo della transazione",
   "terminal.used": "usato",
   "terminal.debug": "Debug",
@@ -22,7 +22,7 @@
   "terminal.toasterMsg1": "Nessun contenuto da eseguire",
   "terminal.toasterMsg2": "provider del percorso {fileName} non trovato",
   "terminal.vmMode": "Modalità VM",
-  "terminal.vmModeMsg": "Impossibile eseguire il debug di questa chiamata. Il debug delle chiamate è possibile solo in modalità VM Remix.",
+  "terminal.vmModeMsg": "Impossibile eseguire il debug di questa chiamata. Il debug delle chiamate è possibile solo in modalità VM aelf Studio.",
   "terminal.ok": "Ok",
   "terminal.cancel": "Annulla",
   "terminal.callWarning": "(Il costo si applica solo quando viene invocato da un contratto)",

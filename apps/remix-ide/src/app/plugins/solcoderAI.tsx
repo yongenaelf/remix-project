@@ -17,7 +17,7 @@ const profile = {
   description: 'solcoder',
   methods: ['code_generation', 'code_completion', "solidity_answer", "code_explaining", "code_insertion", "error_explaining"],
   events: [],
-  maintainedBy: 'Remix',
+  maintainedBy: 'aelf Studio',
 }
 type ChatEntry = [string, string];
 

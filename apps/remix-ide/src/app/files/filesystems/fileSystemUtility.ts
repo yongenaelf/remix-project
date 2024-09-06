@@ -43,7 +43,7 @@ export class fileSystemUtility {
   downloadBackup = async (fs: fileSystem) => {
     try {
       const zip = new JSZip()
-      zip.file("readme.txt", "This is a Remix backup file.\nThis zip should be used by the restore backup tool in Remix.\nThe .workspaces directory contains your workspaces.")
+      zip.file("readme.txt", "This is a aelf Studio backup file.\nThis zip should be used by the restore backup tool in aelf Studio.\nThe .workspaces directory contains your workspaces.")
       await fs.checkWorkspaces()
       await this.copyFolderToJson('/', null, null, fs.fs, ({ path, content }) => {
         zip.file(path, content)

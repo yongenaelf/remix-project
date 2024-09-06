@@ -115,7 +115,7 @@
   "filePanel.validationError": "Errore di validazione",
   "filePanel.validationErrorMsg": "Non sono ammessi caratteri speciali",
   "filePanel.reservedKeyword": "Parola Chiave Riservata",
-  "filePanel.reservedKeywordMsg": "Il nome del file contiene le parole chiave riservate Remix. \"{content}\"",
+  "filePanel.reservedKeywordMsg": "Il nome del file contiene le parole chiave riservate aelf Studio. \"{content}\"",
   "filePanel.moveFile": "Spostamento dei file",
   "filePanel.moveFileMsg1": "Sei sicuro di voler spostare {src} in {dest}?",
   "filePanel.movingFileFailed": "Spostamento File Non Riuscito",

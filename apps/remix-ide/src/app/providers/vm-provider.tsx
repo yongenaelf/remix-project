@@ -47,9 +47,9 @@ export class MergeVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-paris',
-        displayName: 'Remix VM (Paris)',
+        displayName: 'aelf Studio VM (Paris)',
         kind: 'provider',
-        description: 'Remix VM (Paris)',
+        description: 'aelf Studio VM (Paris)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },
@@ -65,9 +65,9 @@ export class LondonVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-london',
-        displayName: 'Remix VM (London)',
+        displayName: 'aelf Studio VM (London)',
         kind: 'provider',
-        description: 'Remix VM (London)',
+        description: 'aelf Studio VM (London)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },
@@ -83,9 +83,9 @@ export class BerlinVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-berlin',
-        displayName: 'Remix VM (Berlin)',
+        displayName: 'aelf Studio VM (Berlin)',
         kind: 'provider',
-        description: 'Remix VM (Berlin)',
+        description: 'aelf Studio VM (Berlin)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },
@@ -101,9 +101,9 @@ export class ShanghaiVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-shanghai',
-        displayName: 'Remix VM (Shanghai)',
+        displayName: 'aelf Studio VM (Shanghai)',
         kind: 'provider',
-        description: 'Remix VM (Shanghai)',
+        description: 'aelf Studio VM (Shanghai)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },
@@ -119,9 +119,9 @@ export class CancunVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-cancun',
-        displayName: 'Remix VM (Cancun)',
+        displayName: 'aelf Studio VM (Cancun)',
         kind: 'provider',
-        description: 'Remix VM (Cancun)',
+        description: 'aelf Studio VM (Cancun)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },

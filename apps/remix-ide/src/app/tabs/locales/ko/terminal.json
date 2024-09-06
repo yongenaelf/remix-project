@@ -22,7 +22,7 @@
   "terminal.toasterMsg1": "실행할 내용 없음",
   "terminal.toasterMsg2": "{fileName} 경로의 프로바이더를 찾을 수 없음",
   "terminal.vmMode": "VM 모드",
-  "terminal.vmModeMsg": "이 호출을 디버그할 수 없습니다. 호출 디버깅은 Remix VM 모드에서만 가능합니다.",
+  "terminal.vmModeMsg": "이 호출을 디버그할 수 없습니다. 호출 디버깅은 aelf Studio VM 모드에서만 가능합니다.",
   "terminal.ok": "확인",
   "terminal.cancel": "취소",
   "terminal.callWarning": "(컨트랙트에 의해 호출될 때만 비용이 적용됩니다)",

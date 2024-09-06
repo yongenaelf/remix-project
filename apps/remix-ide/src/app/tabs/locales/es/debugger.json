@@ -8,7 +8,7 @@
   "debugger.debugLocaNodeLabel": "Forzar uso de nodo local",
   "debugger.useGeneratedSources": "Usar fuentes generadas",
   "debugger.debugWithGeneratedSources": "Cuando se selecciona, el depurador también recorrerá paso a paso el archivo .yul compilado si existe.",
-  "debugger.introduction": "Cuando depura con un hash de transacción, si el contrato es verificado, Remix intentará obtener el código fuente de Sourcify o Etherscan. Ponga su clave API de Etherscan en la configuración de Remix. Para redes soportadas, por favor vea",
+  "debugger.introduction": "Cuando depura con un hash de transacción, si el contrato es verificado, aelf Studio intentará obtener el código fuente de Sourcify o Etherscan. Ponga su clave API de Etherscan en la configuración de aelf Studio. Para redes soportadas, por favor vea",
   "debugger.forceToUseCurrentLocalNode": "Fuerza al depurador a usar el nodo local actual",
   "debugger.sourceLocationStatus1": "Ubicando el punto de interrupción, esto puede llevar un tiempo...",
   "debugger.sourceLocationStatus2": "La ubicación de la fuente no está disponible, ni en Sourcify ni en Etherscan. Por favor, asegúrese de que la clave Etherscan del api se encuentra en la configuración.",

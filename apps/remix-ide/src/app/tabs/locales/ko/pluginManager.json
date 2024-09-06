@@ -15,7 +15,7 @@
   "pluginManager.localForm.commaSeparatedPlugin": "쉼표로 구분된 플러그인 이름 리스트",
   "pluginManager.localForm.pluginsItCanActivate": "활성 가능한 플러그인",
   "pluginManager.localForm.typeOfConnection": "연결 유형",
-  "pluginManager.localForm.locationInRemix": "Remix 내 위치",
+  "pluginManager.localForm.locationInRemix": "aelf Studio 내 위치",
   "pluginManager.localForm.sidePanel": "사이드 패널",
   "pluginManager.localForm.mainPanel": "메인 패널",
   "pluginManager.localForm.none": "없음",

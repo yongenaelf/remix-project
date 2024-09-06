@@ -8,7 +8,7 @@
   "debugger.debugLocaNodeLabel": "Принудительное использование локального узла",
   "debugger.useGeneratedSources": "Использовать сгенерированные источники",
   "debugger.debugWithGeneratedSources": "Когда флажок установлен, то отладчик проверит скомпилированный файл .yul, если он существует.",
-  "debugger.introduction": "При отладке с хэшем транзакции, если контракт проверен, Remix попытается получить исходный код из Sourcify или Etherscan. Укажите API ключ Etherscan в настройках Remix. Поддерживаемые сети смотрите в",
+  "debugger.introduction": "При отладке с хэшем транзакции, если контракт проверен, aelf Studio попытается получить исходный код из Sourcify или Etherscan. Укажите API ключ Etherscan в настройках aelf Studio. Поддерживаемые сети смотрите в",
   "debugger.forceToUseCurrentLocalNode": "Заставить отладчик использовать текущий локальный узел",
   "debugger.sourceLocationStatus1": "Поиск контрольной точки. Это может занять некоторое время...",
   "debugger.sourceLocationStatus2": "Местоположение источника недоступно ни в Sourcify ни в Etherscan. Пожалуйста, убедитесь, что ключ api Etherscan указан в настройках.",

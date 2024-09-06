@@ -122,7 +122,7 @@
   "filePanel.validationError": "유효성 검사 오류",
   "filePanel.validationErrorMsg": "특수 문자 사용 불가",
   "filePanel.reservedKeyword": "예약된 키워드",
-  "filePanel.reservedKeywordMsg": "파일 이름에 Remix 예약 키워드 포함. \"{content}\"",
+  "filePanel.reservedKeywordMsg": "파일 이름에 aelf Studio 예약 키워드 포함. \"{content}\"",
   "filePanel.moveFile": "파일 이동",
   "filePanel.moveFileMsg1": "{src}을 {dest}로 이동하시겠습니까?",
   "filePanel.movingFileFailed": "파일 이동 실패",

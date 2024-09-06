@@ -19,13 +19,13 @@ const profile = {
   location: 'mainPanel',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/run.html',
   version: packageJson.version,
-  maintainedBy: 'Remix',
+  maintainedBy: 'aelf Studio',
   permission: true,
   events: [],
   methods: []
 }
 
-type ProvidersSection = `Injected` | 'Remix VMs' | 'Externals' | 'Remix forked VMs'
+type ProvidersSection = `Injected` | 'aelf Studio VMs' | 'Externals' | 'aelf Studio forked VMs'
 
 export class EnvironmentExplorer extends ViewPlugin {
   providers: { [key in ProvidersSection]: Provider[] }
@@ -38,8 +38,8 @@ export class EnvironmentExplorer extends ViewPlugin {
     this.providersFlat = {}
     this.providers = {
       'Injected': [],
-      'Remix VMs': [],
-      'Remix forked VMs': [],
+      'aelf Studio VMs': [],
+      'aelf Studio forked VMs': [],
       'Externals': []
     }
   }
@@ -54,9 +54,9 @@ export class EnvironmentExplorer extends ViewPlugin {
     if (provider.isInjected) {
       this.providers['Injected'].push(provider)
     } else if (provider.isForkedVM) {
-      this.providers['Remix forked VMs'].push(provider)
+      this.providers['aelf Studio forked VMs'].push(provider)
     } else if (provider.isVM) {
-      this.providers['Remix VMs'].push(provider)
+      this.providers['aelf Studio VMs'].push(provider)
     } else {
       this.providers['Externals'].push(provider)
     }
@@ -83,9 +83,9 @@ export class EnvironmentExplorer extends ViewPlugin {
   updateComponent(state: any) {
     this.providers = {
       'Injected': [],
-      'Remix VMs': [],
+      'aelf Studio VMs': [],
       'Externals': [],
-      'Remix forked VMs': []
+      'aelf Studio forked VMs': []
     }
     for (const [key, provider] of Object.entries(this.providersFlat)) {
       this.addProvider(provider)
@@ -141,13 +141,13 @@ export class EnvironmentExplorer extends ViewPlugin {
           plugin={this}
           title='Deploy to an In-browser Virtual Machine.'
           hScrollable={false}
-        >{this.providers['Remix VMs'].map(provider => {
+        >{this.providers['aelf Studio VMs'].map(provider => {
             return <RemixUIGridCell
               plugin={this}
               title={provider.displayName}
               logos={provider.logos}
               classList='EECellStyle'
-              searchKeywords={['Remix VMs', provider.name, provider.displayName, provider.title, provider.description]}
+              searchKeywords={['aelf Studio VMs', provider.name, provider.displayName, provider.title, provider.description]}
               pinned={this.pinnedProviders.includes(provider.name)}
               key={provider.name}
               id={provider.name}
@@ -175,13 +175,13 @@ export class EnvironmentExplorer extends ViewPlugin {
           plugin={this}
           title='Deploy to an In-browser forked Virtual Machine.'
           hScrollable={false}
-        >{this.providers['Remix forked VMs'].map(provider => {
+        >{this.providers['aelf Studio forked VMs'].map(provider => {
             return <RemixUIGridCell
               plugin={this}
               title={provider.displayName}
               logos={provider.logos}
               classList='EECellStyle'
-              searchKeywords={['Remix VMs', provider.name, provider.displayName, provider.title, provider.description]}
+              searchKeywords={['aelf Studio VMs', provider.name, provider.displayName, provider.title, provider.description]}
               pinned={this.pinnedProviders.includes(provider.name)}
               key={provider.name}
               id={provider.name}

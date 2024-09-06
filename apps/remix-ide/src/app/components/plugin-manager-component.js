@@ -16,7 +16,7 @@ const profile = {
   location: 'sidePanel',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/plugin_manager.html',
   version: packageJson.version,
-  maintainedBy: "Remix"
+  maintainedBy: "aelf Studio"
 }
 
 class PluginManagerComponent extends ViewPlugin {

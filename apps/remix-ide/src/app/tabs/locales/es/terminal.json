@@ -1,6 +1,6 @@
 {
   "terminal.listen": "escuchar en todas las transacciones",
-  "terminal.listenTitle": "Si está selccionado, Remix escuchará en todas las transacciones minadas en el entorno actual y no solo las transacciones creadas por ti",
+  "terminal.listenTitle": "Si está selccionado, aelf Studio escuchará en todas las transacciones minadas en el entorno actual y no solo las transacciones creadas por ti",
   "terminal.search": "Buscar con el hash de transacción o dirección",
   "terminal.used": "usado",
   "terminal.debug": "Depurar",
@@ -22,7 +22,7 @@
   "terminal.toasterMsg1": "no hay contenido para ejecutar",
   "terminal.toasterMsg2": "proveedor para la ruta {fileName} no encontrado",
   "terminal.vmMode": "Modo MV",
-  "terminal.vmModeMsg": "No se puede depurar esta llamada. La depuración de llamadas sólo es posible en el modo MV Remix.",
+  "terminal.vmModeMsg": "No se puede depurar esta llamada. La depuración de llamadas sólo es posible en el modo MV aelf Studio.",
   "terminal.ok": "Aceptar",
   "terminal.cancel": "Cancelar",
   "terminal.callWarning": "(El costo solo aplica cuando es llamado por un contrato)",

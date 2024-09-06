@@ -14,12 +14,12 @@ const profile = {
   methods: [],
   events: [],
   icon: 'assets/img/staticAnalysis.webp',
-  description: 'Analyze your code using Remix, Solhint and Slither.',
+  description: 'Analyze your code using aelf Studio, Solhint and Slither.',
   kind: 'analysis',
   location: 'sidePanel',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/static_analysis.html',
   version: packageJson.version,
-  maintainedBy: 'Remix'
+  maintainedBy: 'aelf Studio'
 }
 
 class AnalysisTab extends ViewPlugin {

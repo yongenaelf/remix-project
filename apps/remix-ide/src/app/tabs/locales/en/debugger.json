@@ -8,7 +8,7 @@
   "debugger.debugLocaNodeLabel": "Force using local node",
   "debugger.useGeneratedSources": "Use generated sources",
   "debugger.debugWithGeneratedSources": "When checked, debugger will also step through the compiled .yul file if it exists.",
-  "debugger.introduction": "When Debugging with a transaction hash, if the contract is verified, Remix will try to fetch the source code from Sourcify or Etherscan. Put in your Etherscan API key in the Remix settings. For supported networks, please see",
+  "debugger.introduction": "When Debugging with a transaction hash, if the contract is verified, aelf Studio will try to fetch the source code from Sourcify or Etherscan. Put in your Etherscan API key in the aelf Studio settings. For supported networks, please see",
   "debugger.forceToUseCurrentLocalNode": "Force the debugger to use the current local node",
   "debugger.sourceLocationStatus1": "Locating breakpoint, this might take a while...",
   "debugger.sourceLocationStatus2": "Source location not available, neither in Sourcify nor in Etherscan. Please make sure the Etherscan api key is provided in the settings.",

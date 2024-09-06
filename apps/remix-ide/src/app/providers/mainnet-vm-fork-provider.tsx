@@ -8,9 +8,9 @@ export class MainnetForkVMProvider extends BasicVMProvider {
     super(
       {
         name: 'vm-mainnet-fork',
-        displayName: 'Mainnet fork - Remix VM (Cancun)',
+        displayName: 'Mainnet fork - aelf Studio VM (Cancun)',
         kind: 'provider',
-        description: 'Remix VM (Cancun)',
+        description: 'aelf Studio VM (Cancun)',
         methods: ['sendAsync', 'init'],
         version: packageJson.version
       },

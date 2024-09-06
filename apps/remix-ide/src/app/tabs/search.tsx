@@ -13,7 +13,7 @@ const profile = {
   location: 'sidePanel',
   documentation: 'https://remix-ide.readthedocs.io/en/latest/search_in_fe.html',
   version: packageJson.version,
-  maintainedBy: 'Remix'
+  maintainedBy: 'aelf Studio'
 }
 
 export class SearchPlugin extends ViewPlugin {

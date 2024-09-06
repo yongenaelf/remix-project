@@ -1,6 +1,6 @@
 {
   "terminal.listen": "écouter toutes les transactions",
-  "terminal.listenTitle": "Si cette case est cochée, Remix écoutera toutes les transactions minées dans l'environnement actuel et pas seulement les transactions créées par vous",
+  "terminal.listenTitle": "Si cette case est cochée, aelf Studio écoutera toutes les transactions minées dans l'environnement actuel et pas seulement les transactions créées par vous",
   "terminal.search": "Rechercher avec le hash de la transaction ou l'adrresse",
   "terminal.used": "utilisé",
   "terminal.debug": "Débogage",
@@ -22,7 +22,7 @@
   "terminal.toasterMsg1": "aucun contenu à exécuter",
   "terminal.toasterMsg2": "provider pour le chemin {fileName} introuvable",
   "terminal.vmMode": "Mode VM",
-  "terminal.vmModeMsg": "Impossible de déboguer ce call. Les calls de débogage ne sont possibles qu'en mode VM de Remix.",
+  "terminal.vmModeMsg": "Impossible de déboguer ce call. Les calls de débogage ne sont possibles qu'en mode VM de aelf Studio.",
   "terminal.ok": "Ok",
   "terminal.cancel": "Annuler",
   "terminal.callWarning": "(Les frais ne s'appliquent qu'en cas d'appel par contrat)",

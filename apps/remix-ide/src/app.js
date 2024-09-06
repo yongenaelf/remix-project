@@ -40,44 +40,44 @@ import {HardhatProvider} from './app/providers/hardhat-provider'
 import {GanacheProvider} from './app/providers/ganache-provider'
 import {FoundryProvider} from './app/providers/foundry-provider'
 import {ExternalHttpProvider} from './app/providers/external-http-provider'
-import { EnvironmentExplorer } from './app/providers/environment-explorer'
-import { FileDecorator } from './app/plugins/file-decorator'
-import { CodeFormat } from './app/plugins/code-format'
-import { SolidityUmlGen } from './app/plugins/solidity-umlgen'
-import { CompilationDetailsPlugin } from './app/plugins/compile-details'
-import { VyperCompilationDetailsPlugin } from './app/plugins/vyper-compilation-details'
-import { RemixGuidePlugin } from './app/plugins/remixGuide'
-import { ContractFlattener } from './app/plugins/contractFlattener'
-import { TemplatesPlugin } from './app/plugins/remix-templates'
-import { fsPlugin } from './app/plugins/electron/fsPlugin'
-import { isoGitPlugin } from './app/plugins/electron/isoGitPlugin'
-import { electronConfig } from './app/plugins/electron/electronConfigPlugin'
-import { electronTemplates } from './app/plugins/electron/templatesPlugin'
-import { xtermPlugin } from './app/plugins/electron/xtermPlugin'
-import { ripgrepPlugin } from './app/plugins/electron/ripgrepPlugin'
-import { compilerLoaderPlugin, compilerLoaderPluginDesktop } from './app/plugins/electron/compilerLoaderPlugin'
-import { GitPlugin } from './app/plugins/git'
-import { Matomo } from './app/plugins/matomo'
+import {EnvironmentExplorer} from './app/providers/environment-explorer'
+import {FileDecorator} from './app/plugins/file-decorator'
+import {CodeFormat} from './app/plugins/code-format'
+import {SolidityUmlGen} from './app/plugins/solidity-umlgen'
+import {CompilationDetailsPlugin} from './app/plugins/compile-details'
+import {VyperCompilationDetailsPlugin} from './app/plugins/vyper-compilation-details'
+import {RemixGuidePlugin} from './app/plugins/remixGuide'
+import {ContractFlattener} from './app/plugins/contractFlattener'
+import {TemplatesPlugin} from './app/plugins/remix-templates'
+import {fsPlugin} from './app/plugins/electron/fsPlugin'
+import {isoGitPlugin} from './app/plugins/electron/isoGitPlugin'
+import {electronConfig} from './app/plugins/electron/electronConfigPlugin'
+import {electronTemplates} from './app/plugins/electron/templatesPlugin'
+import {xtermPlugin} from './app/plugins/electron/xtermPlugin'
+import {ripgrepPlugin} from './app/plugins/electron/ripgrepPlugin'
+import {compilerLoaderPlugin, compilerLoaderPluginDesktop} from './app/plugins/electron/compilerLoaderPlugin'
+import {GitPlugin} from './app/plugins/git'
+import {Matomo} from './app/plugins/matomo'
 
 import {SolCoder} from './app/plugins/solcoderAI'
 
-import { TemplatesSelectionPlugin } from './app/plugins/templates-selection/templates-selection-plugin'
+import {TemplatesSelectionPlugin} from './app/plugins/templates-selection/templates-selection-plugin'
 
 const isElectron = require('is-electron')
 
 const remixLib = require('@remix-project/remix-lib')
 
-import { QueryParams } from '@remix-project/remix-lib'
-import { SearchPlugin } from './app/tabs/search'
-import { ElectronProvider } from './app/files/electronProvider'
+import {QueryParams} from '@remix-project/remix-lib'
+import {SearchPlugin} from './app/tabs/search'
+import {ElectronProvider} from './app/files/electronProvider'
 
 const Storage = remixLib.Storage
 const RemixDProvider = require('./app/files/remixDProvider')
 const Config = require('./config')
 
 const FileManager = require('./app/files/fileManager')
-import FileProvider from "./app/files/fileProvider"
-import { appPlatformTypes } from '@remix-ui/app'
+import FileProvider from './app/files/fileProvider'
+import {appPlatformTypes} from '@remix-ui/app'
 const DGitProvider = require('./app/files/dgitProvider')
 const WorkspaceFileProvider = require('./app/files/workspaceFileProvider')
 
@@ -93,12 +93,11 @@ const Editor = require('./app/editor/editor')
 const Terminal = require('./app/panels/terminal')
 const {TabProxy} = require('./app/panels/tab-proxy.js')
 
-
 export class platformApi {
-  get name () {
+  get name() {
     return isElectron() ? appPlatformTypes.desktop : appPlatformTypes.web
   }
-  isDesktop () {
+  isDesktop() {
     return isElectron()
   }
 }
@@ -108,7 +107,7 @@ class AppComponent {
     const PlatFormAPi = new platformApi()
     Registry.getInstance().put({
       api: PlatFormAPi,
-      name: 'platform'
+      name: 'platform',
     })
     this.appManager = new RemixAppManager({})
     this.queryParams = new QueryParams()
@@ -125,31 +124,29 @@ class AppComponent {
     this._components.filesProviders.browser = new FileProvider('browser')
     Registry.getInstance().put({
       api: this._components.filesProviders.browser,
-      name: 'fileproviders/browser'
+      name: 'fileproviders/browser',
     })
     this._components.filesProviders.localhost = new RemixDProvider(this.appManager)
     Registry.getInstance().put({
       api: this._components.filesProviders.localhost,
-      name: 'fileproviders/localhost'
+      name: 'fileproviders/localhost',
     })
     this._components.filesProviders.workspace = new WorkspaceFileProvider()
     Registry.getInstance().put({
       api: this._components.filesProviders.workspace,
-      name: 'fileproviders/workspace'
+      name: 'fileproviders/workspace',
     })
 
     this._components.filesProviders.electron = new ElectronProvider(this.appManager)
     Registry.getInstance().put({
       api: this._components.filesProviders.electron,
-      name: 'fileproviders/electron'
+      name: 'fileproviders/electron',
     })
 
     Registry.getInstance().put({
       api: this._components.filesProviders,
-      name: 'fileproviders'
+      name: 'fileproviders',
     })
-
-
   }
 
   async run() {
@@ -164,8 +161,8 @@ class AppComponent {
     const matomoDomains = {
       'remix-alpha.ethereum.org': 27,
       'remix-beta.ethereum.org': 25,
-      'remix.ethereum.org': 23,
-      '6fd22d6fe5549ad4c4d8fd3ca0b7816b.mod': 35 // remix desktop
+      'studio.aelf.com': 23,
+      '6fd22d6fe5549ad4c4d8fd3ca0b7816b.mod': 35, // remix desktop
     }
 
     this.matomoConfAlreadySet = Registry.getInstance().get('config').api.exists('settings/matomo-analytics')
@@ -237,7 +234,7 @@ class AppComponent {
     const compilationDetails = new CompilationDetailsPlugin(appManager)
     const vyperCompilationDetails = new VyperCompilationDetailsPlugin(appManager)
 
-    // ----------------- Remix Guide ----------------------------
+    // ----------------- aelf Studio Guide ----------------------------
     const remixGuide = new RemixGuidePlugin(appManager)
 
     // ----------------- ContractFlattener ----------------------------
@@ -257,7 +254,7 @@ class AppComponent {
     const compilersArtefacts = new CompilerArtefacts() // store all the compilation results (key represent a compiler name)
     Registry.getInstance().put({
       api: compilersArtefacts,
-      name: 'compilersartefacts'
+      name: 'compilersartefacts',
     })
 
     // service which fetch contract artifacts from sourve-verify, put artifacts in remix and compile it
@@ -285,7 +282,7 @@ class AppComponent {
     const offsetToLineColumnConverter = new OffsetToLineColumnConverter()
     Registry.getInstance().put({
       api: offsetToLineColumnConverter,
-      name: 'offsettolinecolumnconverter'
+      name: 'offsettolinecolumnconverter',
     })
     // ----------------- run script after each compilation results -----------
     const compileAndRun = new CompileAndRun()
@@ -301,7 +298,7 @@ class AppComponent {
           let newpos = event.pageY < limitUp ? limitUp : event.pageY
           newpos = newpos < height - limitDown ? newpos : height - limitDown
           return height - newpos
-        }
+        },
       }
     )
 
@@ -357,7 +354,7 @@ class AppComponent {
       ganacheProvider,
       foundryProvider,
       externalHttpProvider,
-      environmentExplorer,  
+      environmentExplorer,
       this.walkthroughService,
       search,
       solidityumlgen,
@@ -371,7 +368,7 @@ class AppComponent {
       git,
       pluginStateLogger,
       matomo,
-      templateSelection
+      templateSelection,
     ])
 
     //---- fs plugin
@@ -390,7 +387,7 @@ class AppComponent {
       this.engine.register([ripgrep])
     }
 
-    const compilerloader = isElectron()? new compilerLoaderPluginDesktop(): new compilerLoaderPlugin()
+    const compilerloader = isElectron() ? new compilerLoaderPluginDesktop() : new compilerLoaderPlugin()
     this.engine.register([compilerloader])
 
     // LAYOUT & SYSTEM VIEWS
@@ -418,50 +415,18 @@ class AppComponent {
     const linkLibraries = new LinkLibraries(blockchain)
     const deployLibraries = new DeployLibraries(blockchain)
     const compileTab = new CompileTab(Registry.getInstance().get('config').api, Registry.getInstance().get('filemanager').api)
-    const run = new RunTab(
-      blockchain,
-      Registry.getInstance().get('config').api,
-      Registry.getInstance().get('filemanager').api,
-      Registry.getInstance().get('editor').api,
-      filePanel,
-      Registry.getInstance().get('compilersartefacts').api,
-      networkModule,
-      Registry.getInstance().get('fileproviders/browser').api,
-      this.engine
-    )
+    const run = new RunTab(blockchain, Registry.getInstance().get('config').api, Registry.getInstance().get('filemanager').api, Registry.getInstance().get('editor').api, filePanel, Registry.getInstance().get('compilersartefacts').api, networkModule, Registry.getInstance().get('fileproviders/browser').api, this.engine)
     const analysis = new AnalysisTab()
     const debug = new DebuggerTab()
-    const test = new TestTab(
-      Registry.getInstance().get('filemanager').api,
-      Registry.getInstance().get('offsettolinecolumnconverter').api,
-      filePanel,
-      compileTab,
-      appManager,
-      contentImport
-    )
+    const test = new TestTab(Registry.getInstance().get('filemanager').api, Registry.getInstance().get('offsettolinecolumnconverter').api, filePanel, compileTab, appManager, contentImport)
 
-    this.engine.register([
-      compileTab,
-      run,
-      debug,
-      analysis,
-      test,
-      filePanel.remixdHandle,
-      filePanel.hardhatHandle,
-      filePanel.foundryHandle,
-      filePanel.truffleHandle,
-      filePanel.slitherHandle,
-      linkLibraries,
-      deployLibraries,
-      openZeppelinProxy,
-      run.recorder
-    ])
+    this.engine.register([compileTab, run, debug, analysis, test, filePanel.remixdHandle, filePanel.hardhatHandle, filePanel.foundryHandle, filePanel.truffleHandle, filePanel.slitherHandle, linkLibraries, deployLibraries, openZeppelinProxy, run.recorder])
 
     this.layout.panels = {
       tabs: {plugin: tabProxy, active: true},
       editor: {plugin: editor, active: true},
       main: {plugin: appPanel, active: false},
-      terminal: {plugin: terminal, active: true, minimized: false}
+      terminal: {plugin: terminal, active: true, minimized: false},
     }
   }
 
@@ -474,64 +439,36 @@ class AppComponent {
     } catch (e) {
       console.log("couldn't register iframe plugins", e.message)
     }
-    if (isElectron()){
+    if (isElectron()) {
       await this.appManager.activatePlugin(['fs'])
     }
     await this.appManager.activatePlugin(['layout'])
     await this.appManager.activatePlugin(['notification'])
     await this.appManager.activatePlugin(['editor'])
-    await this.appManager.activatePlugin([
-      'permissionhandler',
-      'theme',
-      'locale',
-      'fileManager',
-      'compilerMetadata',
-      'compilerArtefacts',
-      'network',
-      'web3Provider',
-      'offsetToLineColumnConverter',
-      'pluginStateLogger',
-      'matomo'
-    ])
+    await this.appManager.activatePlugin(['permissionhandler', 'theme', 'locale', 'fileManager', 'compilerMetadata', 'compilerArtefacts', 'network', 'web3Provider', 'offsetToLineColumnConverter', 'pluginStateLogger', 'matomo'])
     await this.appManager.activatePlugin(['mainPanel', 'menuicons', 'tabs'])
     await this.appManager.activatePlugin(['statusBar'])
     await this.appManager.activatePlugin(['sidePanel']) // activating  host plugin separately
     await this.appManager.activatePlugin(['pinnedPanel'])
     await this.appManager.activatePlugin(['home'])
     await this.appManager.activatePlugin(['settings', 'config'])
-    await this.appManager.activatePlugin([
-      'hiddenPanel',
-      'pluginManager',
-      'codeParser',
-      'codeFormatter',
-      'fileDecorator',
-      'terminal',
-      'blockchain',
-      'fetchAndCompile',
-      'contentImport',
-      'gistHandler',
-      'compilerloader'
-    ])
+    await this.appManager.activatePlugin(['hiddenPanel', 'pluginManager', 'codeParser', 'codeFormatter', 'fileDecorator', 'terminal', 'blockchain', 'fetchAndCompile', 'contentImport', 'gistHandler', 'compilerloader'])
     await this.appManager.activatePlugin(['settings'])
 
     await this.appManager.activatePlugin(['walkthrough', 'storage', 'search', 'compileAndRun', 'recorder', 'dgitApi', 'dgit'])
     await this.appManager.activatePlugin(['solidity-script', 'remix-templates'])
 
-    if (isElectron()){
+    if (isElectron()) {
       await this.appManager.activatePlugin(['isogit', 'electronconfig', 'electronTemplates', 'xterm', 'ripgrep'])
     }
 
-    this.appManager.on(
-      'filePanel',
-      'workspaceInitializationCompleted',
-      async () => {
-        // for e2e tests
-        const loadedElement = document.createElement('span')
-        loadedElement.setAttribute('data-id', 'workspaceloaded')
-        document.body.appendChild(loadedElement)
-        await this.appManager.registerContextMenuItems()
-      }
-    )
+    this.appManager.on('filePanel', 'workspaceInitializationCompleted', async () => {
+      // for e2e tests
+      const loadedElement = document.createElement('span')
+      loadedElement.setAttribute('data-id', 'workspaceloaded')
+      document.body.appendChild(loadedElement)
+      await this.appManager.registerContextMenuItems()
+    })
     await this.appManager.activatePlugin(['solidity-script'])
     await this.appManager.activatePlugin(['solcoder'])
     await this.appManager.activatePlugin(['filePanel'])
@@ -588,7 +525,8 @@ class AppComponent {
                 }
               }
             }
-          }).then(async () => {
+          })
+          .then(async () => {
             const lastPinned = localStorage.getItem('pinnedPlugin')
 
             if (lastPinned) {

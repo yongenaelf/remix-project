@@ -23,7 +23,7 @@ const profile = {
   location: 'mainPanel',
   methods: [],
   events: [],
-  maintainedBy: 'Remix',
+  maintainedBy: 'aelf Studio',
 }
 
 export class TemplatesSelectionPlugin extends ViewPlugin {

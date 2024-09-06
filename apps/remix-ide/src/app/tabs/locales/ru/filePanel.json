@@ -122,7 +122,7 @@
   "filePanel.validationError": "Ошибка проверки",
   "filePanel.validationErrorMsg": "Нельзя использовать специальные символы",
   "filePanel.reservedKeyword": "Зарезервированное ключевое слово",
-  "filePanel.reservedKeywordMsg": "Имя файла содержит зарезервированные ключевые слова Remix \".{content}\"",
+  "filePanel.reservedKeywordMsg": "Имя файла содержит зарезервированные ключевые слова aelf Studio \".{content}\"",
   "filePanel.moveFile": "Перемещение файлов",
   "filePanel.moveFileMsg1": "Вы уверены, что хотите переместить {src} в {dest}?",
   "filePanel.movingFileFailed": "Не удалось переместить файл",
