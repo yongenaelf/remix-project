@@ -122,7 +122,7 @@ export const Preload = (props: any) => {
         <div className="preload-logo pb-4">
           {logo}
           <div className="info-secondary splash">
-            REMIX IDE
+            aelf Studio
             <br />
             <span className="version"> v{packageJson.version}</span>
           </div>

@@ -12,7 +12,7 @@ import { CustomRemixApi } from '@remix-api'
 const statusBarProfile: PluginProfile = {
   name: 'statusBar',
   displayName: 'Status Bar',
-  description: 'Remix IDE status bar panel',
+  description: 'aelf Studio status bar panel',
   methods: ['isAIActive'],
   version: packageJson.version,
 }

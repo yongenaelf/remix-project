@@ -7,7 +7,7 @@ import { PluginViewWrapper } from '@remix-ui/helper'
 const profile = {
   name: 'mainPanel',
   displayName: 'Main Panel',
-  description: 'Remix IDE main panel',
+  description: 'aelf Studio main panel',
   version: packageJson.version,
   methods: ['addView', 'removeView', 'showContent']
 }

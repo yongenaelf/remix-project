@@ -4,7 +4,7 @@
   "remixd.remixdConnect": "Access file system using remixd",
   "remixd.connect": "Connect",
   "remixd.cancel": "Cancel",
-  "remixd.text1": "Access your local file system from Remix IDE using <a>Remixd NPM package</a>.",
+  "remixd.text1": "Access your local file system from aelf Studio using <a>Remixd NPM package</a>.",
   "remixd.text2": "Remixd <a>documentation</a>.",
   "remixd.text3": "The remixd command is:",
   "remixd.text4": "The remixd command without options uses the terminal's current directory as the shared directory and the shared Remix domain can only be https://remix.ethereum.org, https://remix-alpha.ethereum.org, or https://remix-beta.ethereum.org",
