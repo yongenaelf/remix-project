@@ -159,13 +159,28 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     const name = await this.getContractName()
     if (!name) throw new Error('No contract selected yet')
     const directory = name.split("/").slice(0, -1).join("/")
+    
+    console.log('getting dirList')
     const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
+    console.log(dirList, '--dirList')
+    
     let content: Record<string, string> = {}
     for (const dir of dirList) {
+      
+      console.log('getting folder')
       const currentDir: Record<string, Record<string, boolean>> = await this.client.call('fileManager', 'getFolder', dir)
+      console.log(currentDir, '--currentDir')
+      
       for (const [key, value] of Object.entries(currentDir)) {
-        if (!value.isDirectory)
-          content[key.replace(directory, "")] = await this.client.call('fileManager', 'getFile', key)
+        if (!value.isDirectory) {
+          const k = key.replace(directory, "")
+          console.log(k, '--key')
+
+          const v = await this.client.call('fileManager', 'getFile', key)
+          console.log(v, '--value')
+
+          content[k] = v
+        }
       }
     }
 
