@@ -1,26 +1,30 @@
 export default async () => {
   return {
     // @ts-ignore
-    'contracts/1_Storage.sol': (await import('raw-loader!./contracts/1_Storage.sol')).default,
+    'src/Protobuf/contract/hello_world_contract.proto': (await import('raw-loader!./src/Protobuf/contract/hello_world_contract.proto')).default,
     // @ts-ignore
-    'contracts/2_Owner.sol': (await import('raw-loader!./contracts/2_Owner.sol')).default,
+    'src/Protobuf/message/authority_info.proto': (await import('raw-loader!./src/Protobuf/message/authority_info.proto')).default,
     // @ts-ignore
-    'contracts/3_Ballot.sol': (await import('raw-loader!./contracts/3_Ballot.sol')).default,
+    'src/Protobuf/reference/acs12.proto': (await import('raw-loader!./src/Protobuf/reference/acs12.proto')).default,
     // @ts-ignore
-    'scripts/deploy_with_ethers.ts': (await import('!!raw-loader!./scripts/deploy_with_ethers.ts')).default,
+    'src/HelloWorld.cs': (await import('raw-loader!./src/HelloWorld.cs')).default,
     // @ts-ignore
-    'scripts/deploy_with_web3.ts': (await import('!!raw-loader!./scripts/deploy_with_web3.ts')).default,
+    'src/HelloWorld.csproj': (await import('raw-loader!./src/HelloWorld.csproj')).default,
     // @ts-ignore
-    'scripts/ethers-lib.ts': (await import('!!raw-loader!./scripts/ethers-lib.ts')).default,
+    'src/HelloWorldState.cs': (await import('raw-loader!./src/HelloWorldState.cs')).default,
     // @ts-ignore
-    'scripts/web3-lib.ts': (await import('!!raw-loader!./scripts/web3-lib.ts')).default,
+    'test/Protobuf/message/authority_info.proto': (await import('raw-loader!./test/Protobuf/message/authority_info.proto')).default,
     // @ts-ignore
-    'tests/Ballot_test.sol': (await import('raw-loader!./tests/Ballot_test.sol')).default,
+    'test/Protobuf/reference/acs12.proto': (await import('raw-loader!./test/Protobuf/reference/acs12.proto')).default,
     // @ts-ignore
-    'tests/storage.test.js': (await import('!!raw-loader!./tests/storage.test.js')).default,
+    'test/Protobuf/stub/hello_world_contract.proto': (await import('raw-loader!./test/Protobuf/stub/hello_world_contract.proto')).default,
     // @ts-ignore
-    'README.txt': (await import('raw-loader!./README.txt')).default,
+    'test/_Setup.cs': (await import('raw-loader!./test/_Setup.cs')).default,
     // @ts-ignore
-    '.prettierrc.json': (await import('raw-loader!./.prettierrc')).default,
+    'test/HelloWorld.Tests.csproj': (await import('raw-loader!./test/HelloWorld.Tests.csproj')).default,
+    // @ts-ignore
+    'test/HelloWorldTests.cs': (await import('raw-loader!./test/HelloWorldTests.cs')).default,
+    // @ts-ignore
+    '.prettierrc.json': (await import('raw-loader!./.prettierrc')).default
   }
 }
