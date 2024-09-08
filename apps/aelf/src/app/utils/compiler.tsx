@@ -167,7 +167,7 @@ function prependFolderName(files: Record<string, string>, folderName: string = '
  * @param url The url of the compiler
  * @param contract The name and content of the contract
  */
-export async function compile(url: string, contract: Contract): Promise<any> {
+export async function compile(url: string, contract: Contract): Promise<{status: 'success', compileCode: string}> {
   if (!contract.name) {
     throw new Error('Select the csproj file.')
   }
@@ -198,6 +198,10 @@ export async function compile(url: string, contract: Contract): Promise<any> {
   const compileCode = response.data
   
   console.log(compileCode)
+  return {
+    status: 'success',
+    compileCode
+  }
 }
 
 /**
@@ -272,21 +276,24 @@ export async function compileContract(contract: string, compilerUrl: string, set
       type: 'info',
       title: 'Compiling'
     })
-    let output
+    let output: {
+      status: "success"
+      compileCode: string
+    }
     // try {
     output = await compile(compilerUrl, _contract)
-    if (output.status === 'failed') {
-      remixClient.changeStatus({
-        key: 'failed',
-        type: 'error',
-        title: 'Compilation failed...'
-      })
+    // if (output.status === 'failed') {
+    //   remixClient.changeStatus({
+    //     key: 'failed',
+    //     type: 'error',
+    //     title: 'Compilation failed...'
+    //   })
 
-      setLoadingSpinnerState && setLoadingSpinnerState(false)
-      remixClient.eventEmitter.emit('setOutput', { status: 'failed', message: output.message, title: 'Error compiling...', line: output.line, column: output.column, key: 1 })
-      output = null
-      return
-    }
+    //   setLoadingSpinnerState && setLoadingSpinnerState(false)
+    //   remixClient.eventEmitter.emit('setOutput', { status: 'failed', message: output.message, title: 'Error compiling...', line: output.line, column: output.column, key: 1 })
+    //   output = null
+    //   return
+    // }
 
     // SUCCESS
     // remixClient.discardHighlight()
@@ -297,15 +304,11 @@ export async function compileContract(contract: string, compilerUrl: string, set
     })
 
     setLoadingSpinnerState && setLoadingSpinnerState(false)
-    const data = toStandardOutput(_contract.name, output)
-    remixClient.compilationFinish(_contract.name, _contract.content, data)
-    const contractName = _contract['name']
-    const compileResult = compileReturnType(output, contractName)
-    if (setOutput === null || setOutput === undefined) {
-      remixClient.eventEmitter.emit('setOutput', { contractName, compileResult })
-    } else {
-      remixClient.eventEmitter.emit('setOutput', { contractName, compileResult })
-    }
+    // const data = toStandardOutput(_contract.name, output)
+    // remixClient.compilationFinish(_contract.name, _contract.content, data)
+    // const contractName = _contract['name']
+    // const compileResult = compileReturnType(output, contractName)
+    // remixClient.eventEmitter.emit('setOutput', { contractName, compileResult })
   } catch (err: any) {
     remixClient.changeStatus({
       key: 'failed',
