@@ -14,6 +14,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   compilerUrl: VyperComplierAddress = 'https://playground-next.test.aelf.dev/'
   compilerOutput: any
   eventEmitter = new EventEmitter()
+  content: Record<string, string> = {}
 
   constructor() {
     super()
@@ -154,44 +155,46 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     return this.client.call('fileManager', 'getCurrentFile')
   }
 
+  async handleDir(directory: string) {
+    console.log('getting dirList')
+    const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
+    console.log(dirList, '--dirList')
+    
+    for (const dir of dirList) {
+      
+      console.log('getting folder')
+      const currentDir: Record<string, Record<string, boolean>> = await this.client.call('fileManager', 'getFolder', dir)
+      console.log(currentDir, '--currentDir')
+      
+      for (const [key, value] of Object.entries(currentDir)) {
+        if (!value.isDirectory) {
+          const k = key.replace(directory, "")
+          console.log(k, '--key')
+
+          const v = await this.client.call('fileManager', 'getFile', key)
+          console.log(v, '--value')
+
+          this.content[k] = v
+        } else {
+          await this.handleDir(key)
+        }
+      }
+    }
+  }
+
   /** Get the current contract file */
   async getContract(): Promise<Contract> {
     const name = await this.getContractName()
     if (!name) throw new Error('No contract selected yet')
     
-    let content: Record<string, string> = {}
-
-    async function handleDir(directory: string) {
-      console.log('getting dirList')
-      const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
-      console.log(dirList, '--dirList')
-      
-      for (const dir of dirList) {
-        
-        console.log('getting folder')
-        const currentDir: Record<string, Record<string, boolean>> = await this.client.call('fileManager', 'getFolder', dir)
-        console.log(currentDir, '--currentDir')
-        
-        for (const [key, value] of Object.entries(currentDir)) {
-          if (!value.isDirectory) {
-            const k = key.replace(directory, "")
-            console.log(k, '--key')
-  
-            const v = await this.client.call('fileManager', 'getFile', key)
-            console.log(v, '--value')
-  
-            content[k] = v
-          } else {
-            await handleDir(key)
-          }
-        }
-      }
-    }
+    this.content = {}
 
     const directory = name.split("/").slice(0, -1).join("/")
-    await handleDir(directory)
+    await this.handleDir(directory)
+    
+    const content = this.content;
 
-    console.log(content)
+    console.log(content, '--content')
      
     return {
       name,
