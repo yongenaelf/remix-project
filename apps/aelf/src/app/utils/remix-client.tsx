@@ -158,7 +158,19 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   async getContract(): Promise<Contract> {
     const name = await this.getContractName()
     if (!name) throw new Error('No contract selected yet')
-    const content = await this.client.call('fileManager', 'getFolder', name.split("/").slice(0, -1).join("/"))
+    const directory = name.split("/").slice(0, -1).join("/")
+    const parentDirectory = directory.split("/").slice(0, -1).join("/")
+    const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
+    let content: Record<string, string>
+    for (const dir in dirList) {
+      const currentDir: Record<string, string> = await this.client.call('fileManager', 'getFolder', dir)
+      for (const [key, value] of Object.keys(currentDir)) {
+        content[key.replace(parentDirectory, "")] = value // handle nested directory
+      }
+    }
+
+    console.log(content);
+     
     return {
       name,
       content
