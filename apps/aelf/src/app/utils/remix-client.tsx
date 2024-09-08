@@ -162,9 +162,10 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
     let content: Record<string, string> = {}
     for (const dir of dirList) {
-      const currentDir: Record<string, string> = await this.client.call('fileManager', 'getFolder', dir)
-      for (const [key, value] of Object.keys(currentDir)) {
-        content[key.replace(directory, "")] = value
+      const currentDir: Record<string, Record<string, boolean>> = await this.client.call('fileManager', 'getFolder', dir)
+      for (const [key, value] of Object.entries(currentDir)) {
+        if (!value.isDirectory)
+          content[key.replace(directory, "")] = await this.client.call('fileManager', 'getFile', key)
       }
     }
 
