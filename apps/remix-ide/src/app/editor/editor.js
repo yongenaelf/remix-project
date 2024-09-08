@@ -55,7 +55,8 @@ class Editor extends Plugin {
       move: 'move',
       circom: 'circom',
       nr: 'rust',
-      toml: 'toml'
+      toml: 'toml',
+      cs: "csharp"
     }
 
     this.activated = false

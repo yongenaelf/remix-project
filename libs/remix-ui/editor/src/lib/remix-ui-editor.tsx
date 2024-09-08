@@ -9,6 +9,7 @@ import { solidityTokensProvider, solidityLanguageConfig } from './syntaxes/solid
 import { cairoTokensProvider, cairoLanguageConfig } from './syntaxes/cairo'
 import { zokratesTokensProvider, zokratesLanguageConfig } from './syntaxes/zokrates'
 import { moveTokenProvider, moveLanguageConfig } from './syntaxes/move'
+import { csharpTokenProvider, csharpLanguageConfig } from './syntaxes/csharp'
 import { tomlLanguageConfig, tomlTokenProvider } from './syntaxes/toml'
 import { monacoTypes } from '@remix-ui/editor'
 import { loadTypes } from './web-types'
@@ -361,6 +362,8 @@ export const EditorUI = (props: EditorUIProps) => {
       monacoRef.current.editor.setModelLanguage(file.model, 'remix-zokrates')
     } else if (file.language === 'move') {
       monacoRef.current.editor.setModelLanguage(file.model, 'remix-move')
+    } else if (file.language === 'csharp') {
+      monacoRef.current.editor.setModelLanguage(file.model, 'remix-csharp')
     } else if (file.language === 'circom') {
       monacoRef.current.editor.setModelLanguage(file.model, 'remix-circom')
     } else if (file.language === 'toml') {
@@ -987,6 +990,7 @@ export const EditorUI = (props: EditorUIProps) => {
     monacoRef.current.languages.register({ id: 'remix-cairo' })
     monacoRef.current.languages.register({ id: 'remix-zokrates' })
     monacoRef.current.languages.register({ id: 'remix-move' })
+    monacoRef.current.languages.register({ id: 'remix-csharp' })
     monacoRef.current.languages.register({ id: 'remix-circom' })
     monacoRef.current.languages.register({ id: 'remix-toml' })
 
@@ -1005,6 +1009,9 @@ export const EditorUI = (props: EditorUIProps) => {
 
     monacoRef.current.languages.setMonarchTokensProvider('remix-move', moveTokenProvider as any)
     monacoRef.current.languages.setLanguageConfiguration('remix-move', moveLanguageConfig as any)
+
+    monacoRef.current.languages.setMonarchTokensProvider('remix-csharp', csharpTokenProvider as any)
+    monacoRef.current.languages.setLanguageConfiguration('remix-csharp', csharpLanguageConfig as any)
 
     monacoRef.current.languages.setMonarchTokensProvider('remix-circom', circomTokensProvider as any)
     monacoRef.current.languages.setLanguageConfiguration('remix-circom', circomLanguageConfig(monacoRef.current) as any)
