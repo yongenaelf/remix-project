@@ -161,7 +161,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     
     let content: Record<string, string> = {}
 
-    async function handleDir(path: string) {
+    async function handleDir(directory: string) {
       console.log('getting dirList')
       const dirList: string[] = await this.client.call('fileManager', 'dirList', directory)
       console.log(dirList, '--dirList')
