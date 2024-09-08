@@ -15,6 +15,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   compilerOutput: any
   eventEmitter = new EventEmitter()
   content: Record<string, string> = {}
+  rootDir: string = ""
 
   constructor() {
     super()
@@ -158,7 +159,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   async handleDir(directory: string) {
     const fileList: string[] = await this.client.call('fileManager', 'fileList', directory)
     for (const key of fileList) {
-      const k = key.replace(directory, "")
+      const k = key.replace(this.rootDir, "")
       const v = await this.client.call('fileManager', 'getFile', key)
       this.content[k] = v
     }
@@ -182,6 +183,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     this.content = {}
 
     const directory = name.split("/").slice(0, -1).join("/")
+    this.rootDir = directory + "/"
     await this.handleDir(directory)
     
     const content = this.content;
