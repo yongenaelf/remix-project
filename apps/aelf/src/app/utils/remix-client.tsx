@@ -158,7 +158,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   async getContract(): Promise<Contract> {
     const name = await this.getContractName()
     if (!name) throw new Error('No contract selected yet')
-    const content = await this.client.call('fileManager', 'getFile', name)
+    const content = await this.client.call('fileManager', 'getFolder', name.split("/").slice(0, -1).join("/"))
     return {
       name,
       content
