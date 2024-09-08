@@ -137,6 +137,7 @@ export function ContractDropdownUI(props: ContractDropdownProps) {
     return (
       /.(.sol)$/.exec(file) ||
       /.(.vy)$/.exec(file) || // vyper
+      /.(.csproj)$/.exec(file) || // aelf
       /.(.lex)$/.exec(file) || // lexon
       /.(.contract)$/.exec(file)
     )

@@ -220,6 +220,9 @@ export const TabsUI = (props: TabsUIProps) => {
                 } else if (tabsState.currentExt === 'vy') {
                   await props.plugin.call('vyper', 'vyperCompileCustomAction')
                   _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
+                } else if (tabsState.currentExt === 'csproj') {
+                  await props.plugin.call('aelf', 'aelfCompileCustomAction')
+                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
                 }
               }}
             >

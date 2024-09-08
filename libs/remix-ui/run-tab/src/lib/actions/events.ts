@@ -78,6 +78,8 @@ export const setupEvents = (plugin: RunTab) => {
   plugin.on('solidity', 'compilationFinished', (file, source, languageVersion, data, input, version) => broadcastCompilationResult('remix', plugin, dispatch, file, source, languageVersion, data, input))
 
   plugin.on('vyper', 'compilationFinished', (file, source, languageVersion, data) => broadcastCompilationResult('vyper', plugin, dispatch, file, source, languageVersion, data))
+  
+  plugin.on('aelf', 'compilationFinished', (file, source, languageVersion, data) => broadcastCompilationResult('aelf', plugin, dispatch, file, source, languageVersion, data))
 
   plugin.on('lexon', 'compilationFinished', (file, source, languageVersion, data) => broadcastCompilationResult('lexon', plugin, dispatch, file, source, languageVersion, data))
 
@@ -158,6 +160,7 @@ export const setupEvents = (plugin: RunTab) => {
       dispatch(setLoadType('abi'))
     } else if (/.(.sol)$/.exec(currentFile) ||
         /.(.vy)$/.exec(currentFile) || // vyper
+        /.(.csproj)$/.exec(currentFile) || // aelf
         /.(.lex)$/.exec(currentFile) || // lexon
         /.(.contract)$/.exec(currentFile)) {
       dispatch(setLoadType('sol'))
