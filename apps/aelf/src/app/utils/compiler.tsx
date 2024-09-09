@@ -282,6 +282,7 @@ export async function compileContract(contract: string, compilerUrl: string, set
     }
     // try {
     output = await compile(compilerUrl, _contract)
+    remixClient.log(output.compileCode)
     // if (output.status === 'failed') {
     //   remixClient.changeStatus({
     //     key: 'failed',

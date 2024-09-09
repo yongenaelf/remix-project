@@ -186,9 +186,7 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     this.rootDir = directory + "/"
     await this.handleDir(directory)
     
-    const content = this.content;
-
-    console.log(content, '--content')
+    const content = this.content
      
     return {
       name,
@@ -199,6 +197,10 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
   /** Emit an event to Remix with compilation result */
   compilationFinish(title: string, content: string, data: CompilationResult) {
     this.client.emit('compilationFinished', title, content, 'aelf', data)
+  }
+
+  log(value: string) {
+    this.client.call('terminal', 'log', { type: 'log', value })
   }
 }
 
