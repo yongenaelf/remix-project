@@ -43,7 +43,7 @@ element.style {
   margin-top        : auto;
   margin-bottom     : 2rem;
   font-family       : monospace;
-  overflow-y        : scroll;
+  overflow-y        : auto;
 }
 .remix_ui_terminal_block {
   white-space       : pre-wrap;
