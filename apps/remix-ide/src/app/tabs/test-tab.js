@@ -62,11 +62,11 @@ module.exports = class TestTab extends ViewPlugin {
   }
 
   async createTestLibs () {
-    const provider = await this.fileManager.currentFileProvider()
-    if (provider) {
-      await provider.addExternal('.deps/remix-tests/remix_tests.sol', assertLibCode, 'remix_tests.sol')
-      await provider.addExternal('.deps/remix-tests/remix_accounts.sol', this.testRunner.accountsLibCode, 'remix_accounts.sol')
-    }
+    // const provider = await this.fileManager.currentFileProvider()
+    // if (provider) {
+    //   await provider.addExternal('.deps/remix-tests/remix_tests.sol', assertLibCode, 'remix_tests.sol')
+    //   await provider.addExternal('.deps/remix-tests/remix_accounts.sol', this.testRunner.accountsLibCode, 'remix_accounts.sol')
+    // }
   }
 
   async onActivation () {
