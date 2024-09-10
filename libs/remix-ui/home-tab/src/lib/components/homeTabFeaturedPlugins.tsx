@@ -115,7 +115,7 @@ function HomeTabFeaturedPlugins({ plugin }: HomeTabFeaturedPluginsProps) {
             deviceType={'desktop'}
             itemClass="w-100"
           >
-            {/* <PluginButton
+            <PluginButton
               imgPath="assets/img/staticAnalysis.webp"
               envID="staticAnalysisLogo"
               envText="Solidity Analyzers"
@@ -124,15 +124,15 @@ function HomeTabFeaturedPlugins({ plugin }: HomeTabFeaturedPluginsProps) {
               })}
               remixMaintained={true}
               callback={() => startCodeAnalyzer()}
-            /> */}
-            {/* <PluginButton
+            />
+            <PluginButton
               imgPath="assets/img/cookbook.webp"
               envID="cookbookLogo"
               envText="Cookbook"
               description={intl.formatMessage({ id: 'home.cookbookDesc' })}
               remixMaintained={false}
               callback={() => startCookbook()}
-            /> */}
+            />
             <PluginButton
               imgPath="assets/img/solidityLogo.webp"
               envID="solidityLogo"
@@ -141,21 +141,21 @@ function HomeTabFeaturedPlugins({ plugin }: HomeTabFeaturedPluginsProps) {
               remixMaintained={true}
               callback={() => startSolidity()}
             />
-            {/* <PluginButton
+            <PluginButton
               imgPath="assets/img/sourcifyNewLogo.webp"
               envID="sourcifyLogo"
               envText="Sourcify"
               description={intl.formatMessage({ id: 'home.sourcifyPluginDesc' })}
               callback={() => startSourceVerify()}
-            /> */}
-            {/* <PluginButton
+            />
+            <PluginButton
               imgPath="assets/img/unitTesting.webp"
               envID="sUTLogo"
               envText="Solidity unit testing"
               description={intl.formatMessage({ id: 'home.unitTestPluginDesc' })}
               remixMaintained={true}
               callback={() => startSolidityUnitTesting()}
-            /> */}
+            />
           </Carousel>
         </ThemeContext.Provider>
       </div>
