@@ -46,19 +46,19 @@ export function RemixUIStatusBar({ statusBarPlugin }: RemixUIStatusBarProps) {
   const role = useRole(context)
   const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role])
 
-  useEffect(() => {
-    const abortController = new AbortController()
-    const signal = abortController.signal
-    async function getScamAlerts() {
-      const response = await axios.get('https://raw.githubusercontent.com/remix-project-org/remix-dynamics/main/ide/scam-alerts.json', { signal })
-      if (signal.aborted) return
-      setScamAlerts(response.data.alerts)
-    }
-    getScamAlerts()
-    return () => {
-      abortController.abort()
-    }
-  }, [])
+  // useEffect(() => {
+  //   const abortController = new AbortController()
+  //   const signal = abortController.signal
+  //   async function getScamAlerts() {
+  //     const response = await axios.get('https://raw.githubusercontent.com/remix-project-org/remix-dynamics/main/ide/scam-alerts.json', { signal })
+  //     if (signal.aborted) return
+  //     setScamAlerts(response.data.alerts)
+  //   }
+  //   getScamAlerts()
+  //   return () => {
+  //     abortController.abort()
+  //   }
+  // }, [])
 
   const lightAiUp = async () => {
     const aiActive = await statusBarPlugin.call('settings', 'get', 'settings/copilot/suggest/activate')
