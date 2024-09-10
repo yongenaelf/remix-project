@@ -1,5 +1,4 @@
 import React from 'react'
-import StudioLogo from './Logo'
 interface BasicLogoProps {
   classList?: string
   solid?: boolean
@@ -7,7 +6,7 @@ interface BasicLogoProps {
 
 function BasicLogo({classList = '', solid = true}: BasicLogoProps) {
   if (solid) {
-    return <StudioLogo />
+    return <img className="" src="assets/img/aelf_studio_icon.svg" style={{height: '3rem'}} alt=""></img>
   } else {
     return <img className="" src="assets/img/aelf_studio_icon_light.webp" style={{height: '3rem'}} alt=""></img>
   }
