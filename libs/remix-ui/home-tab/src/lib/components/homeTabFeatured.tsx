@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl'
 import { ThemeContext, themes } from '../themeContext'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import * as releaseDetails from './../../../../../../releaseDetails.json'
+// import * as releaseDetails from './../../../../../../releaseDetails.json'
 
 const _paq = (window._paq = window._paq || []) // eslint-disable-line
 
@@ -38,7 +38,7 @@ function HomeTabFeatured() {
               autoPlaySpeed={10000}
               dotListClass="position-relative mt-2"
             >
-              <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
+              {/* <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
                 <a href={releaseDetails.moreLink} target="__blank">
                   <img src={'assets/img/remi_drums_whatsnew.webp'} className="remixui_carouselImage" alt=""></img>
                 </a>
@@ -61,8 +61,8 @@ function HomeTabFeatured() {
                     {releaseDetails.more}
                   </a>
                 </div>
-              </div>
-              <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
+              </div> */}
+              {/* <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
                 <a href="https://remix-project.org" target="__blank">
                   <img src={'assets/img/bgRemi_small.webp'} className="remixui_carouselImage" alt=""></img>
                 </a>
@@ -82,9 +82,9 @@ function HomeTabFeatured() {
                     <FormattedMessage id="home.jumpIntoWeb3More" />
                   </a>
                 </div>
-              </div>
+              </div> */}
               <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
-                <a href="https://www.youtube.com/@EthereumRemix/videos" target="__blank">
+                <a href="https://www.youtube.com/@aelfblockchain/videos" target="__blank">
                   <img src={'/assets/img/YouTubeLogo.webp'} className="remixui_carouselImage" alt=""></img>
                 </a>
                 <div className="h6 w-50 p-2 pl-4  align-self-center" style={{ flex: '1' }}>
@@ -101,13 +101,13 @@ function HomeTabFeatured() {
                     className="remixui_home_text btn-sm btn-secondary mt-2 text-decoration-none mb-3"
                     onClick={() => _paq.push(['trackEvent', 'hometab', 'featuredSection', 'youTubeMore'])}
                     target="__blank"
-                    href="https://www.youtube.com/@EthereumRemix/videos"
+                    href="https://www.youtube.com/@aelfblockchain/videos"
                   >
                     <FormattedMessage id="home.remixYouTubeMore" />
                   </a>
                 </div>
               </div>
-              <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
+              {/* <div className="mr-1 pr-1 d-flex align-items-center justify-content-center h-100">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0WsJnKbeJo-BGrnf7WijxAdmE4PnC_Z4M0IApbBfHLHZdsQ/viewform" target="__blank">
                   <img src={'/assets/img/remixRewardBetaTester_small.webp'} className="remixui_carouselImage_remixbeta" alt=""></img>
                 </a>
@@ -130,7 +130,7 @@ function HomeTabFeatured() {
                     <FormattedMessage id="home.betaTestingMore" />
                   </a>
                 </div>
-              </div>
+              </div> */}
             </Carousel>
           </ThemeContext.Provider>
         </div>
