@@ -107,7 +107,7 @@ export const Preload = (props: any) => {
       setTip(tips[index])
     }
     try {
-      showRemixTips()
+      // showRemixTips()
     } catch (e) {
       console.log(e)
     }
