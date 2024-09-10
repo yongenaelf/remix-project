@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react'
 import GitStatus from './components/gitStatus'
 import AIStatus from './components/aiStatus'
-import ScamAlertStatus from './components/scamAlertStatus'
+// import ScamAlertStatus from './components/scamAlertStatus'
 import ScamDetails from './components/scamDetails'
 import { FloatingFocusManager, autoUpdate, flip, offset, shift, size, useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react'
 import axios from 'axios'
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { StatusBar } from 'apps/remix-ide/src/app/components/status-bar'
 import { StatusBarContextProvider } from '../contexts/statusbarcontext'
-import DidYouKnow from './components/didYouKnow'
+// import DidYouKnow from './components/didYouKnow'
 import { appPlatformTypes, platformContext } from '@remix-ui/app'
 
 export interface RemixUIStatusBarProps {
@@ -80,9 +80,9 @@ export function RemixUIStatusBar({ statusBarPlugin }: RemixUIStatusBarProps) {
             <GitStatus plugin={statusBarPlugin} gitBranchName={gitBranchName} setGitBranchName={setGitBranchName} />
           </div>
           <div className="remixui_statusbar"></div>
-          <div className="remixui_statusbar">
+          {/* <div className="remixui_statusbar">
             <DidYouKnow />
-          </div>
+          </div> */}
           <div className="remixui_statusbar"></div>
           <div className="remixui_statusbar d-flex align-items-center p-0">
             <div className="remixui_statusbar">
