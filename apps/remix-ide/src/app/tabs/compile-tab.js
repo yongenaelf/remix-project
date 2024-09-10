@@ -12,8 +12,8 @@ import { isNative } from '../../remixAppManager'
 
 const profile = {
   name: 'solidity',
-  displayName: 'Solidity compiler',
-  icon: 'assets/img/solidity.webp',
+  displayName: 'aelf compiler',
+  icon: 'assets/img/aelf.svg',
   description: 'Compile solidity contracts',
   kind: 'compiler',
   permission: true,

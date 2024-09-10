@@ -258,7 +258,7 @@ export class TabProxy extends Plugin {
       icon = 'assets/img/vyperLogo2.webp'
     }
     if (title === 'Solidity Compile Details') {
-      icon = 'assets/img/solidity.webp'
+      icon = 'assets/img/aelf.svg'
     }
 
 
