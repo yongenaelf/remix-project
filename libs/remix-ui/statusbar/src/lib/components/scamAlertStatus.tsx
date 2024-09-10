@@ -12,7 +12,7 @@ export default function ScamAlertStatus ({ refs, getReferenceProps }: ScamAlertS
 
   return (
     <>
-      {/* <CustomTooltip
+      <CustomTooltip
         tooltipText={"Scam Alerts"}
       >
         <div className="mr-1 d-flex align-items-center justify-content-center remixui_statusbar_scamAlert" id="hTScamAlertSection" ref={refs.setReference} {...getReferenceProps()}>
@@ -21,7 +21,7 @@ export default function ScamAlertStatus ({ refs, getReferenceProps }: ScamAlertS
             <FormattedMessage id="home.scamAlert" />
           </span>
         </div>
-      </CustomTooltip> */}
+      </CustomTooltip>
     </>
   )
 }
