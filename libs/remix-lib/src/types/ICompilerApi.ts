@@ -44,6 +44,7 @@ export interface ICompilerApi {
 
     compileWithHardhat: (configPath: string) => Promise<string>
     compileWithTruffle: (configPath: string) => Promise<string>
+    compileWithAELF: () => Promise<string>
     statusChanged: (data: { key: string, title?: string, type?: string }) => void,
     emit?: (key: string, ...payload: any) => void
 

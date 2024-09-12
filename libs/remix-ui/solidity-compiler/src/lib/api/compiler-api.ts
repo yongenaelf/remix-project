@@ -110,6 +110,10 @@ export const CompilerApiMixin = (Base) => class extends Base {
     return this.call('hardhat', 'compile', configFile)
   }
 
+  compileWithAELF () {
+    return this.call('aelf', "compile")
+  }
+
   compileWithTruffle (configFile) {
     return this.call('truffle', 'compile', configFile)
   }
@@ -353,17 +357,8 @@ export const CompilerApiMixin = (Base) => class extends Base {
       // ctrl+s or command+s
       if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.keyCode === 83 && this.currentFile !== '') {
         e.preventDefault()
-        if (this.currentFile && (this.currentFile.endsWith('.sol') || this.currentFile.endsWith('.yul'))) {
-          if (await this.getAppParameter('hardhat-compilation')) this.compileTabLogic.runCompiler('hardhat')
-          else if (await this.getAppParameter('truffle-compilation')) this.compileTabLogic.runCompiler('truffle')
-          else this.compileTabLogic.runCompiler(undefined)
-        } else if (this.currentFile && this.currentFile.endsWith('.circom')) {
-          await this.call('circuit-compiler', 'compile', this.currentFile)
-        } else if (this.currentFile && this.currentFile.endsWith('.vy')) {
-          await this.call('vyper', 'vyperCompileCustomAction', this.currentFile)
-        } else if (this.currentFile && this.currentFile.endsWith('.csproj')) {
-          await this.call('vyper', 'vyperCompileCustomAction', this.currentFile)
-        }
+
+        this.compileTabLogic.runCompiler('aelf')
       }
     }
     window.document.addEventListener('keydown', this.data.eventHandlers.onKeyDown)

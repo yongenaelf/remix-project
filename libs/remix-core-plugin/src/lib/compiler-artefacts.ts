@@ -63,6 +63,11 @@ export class CompilerArtefacts extends Plugin {
       saveCompilationPerFileResult(file, source, languageVersion, data)
     })
 
+    this.on('aelf', 'compilationFinished', (file, source, languageVersion, data) => {
+      this.compilersArtefacts.__last = new CompilerAbstract(languageVersion, data, source)
+      saveCompilationPerFileResult(file, source, languageVersion, data)
+    })
+
     this.on('hardhat', 'compilationFinished', (file, source, languageVersion, data) => {
       this.compilersArtefacts.__last = new CompilerAbstract(languageVersion, data, source)
       saveCompilationPerFileResult(file, source, languageVersion, data)

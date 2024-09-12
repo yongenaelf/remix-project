@@ -504,26 +504,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
   }
 
   const compile = () => {
-    const currentFile = api.currentFile
-
-    if (!isSolFileSelected()) return
-    _setCompilerVersionFromPragma(currentFile)
-    let externalCompType
-    if (hhCompilation) externalCompType = 'hardhat'
-    else if (truffleCompilation) externalCompType = 'truffle'
-    compileTabLogic.runCompiler(externalCompType)
-  }
-
-  const compileAndRun = () => {
-    const currentFile = api.currentFile
-
-    if (!isSolFileSelected()) return
-    _setCompilerVersionFromPragma(currentFile)
-    let externalCompType
-    if (hhCompilation) externalCompType = 'hardhat'
-    else if (truffleCompilation) externalCompType = 'truffle'
-    api.runScriptAfterCompilation(currentFile)
-    compileTabLogic.runCompiler(externalCompType)
+    compileTabLogic.runCompiler("aelf")
   }
 
   const _updateVersionSelector = (version, customUrl = '', setQueryParameter = true) => {
