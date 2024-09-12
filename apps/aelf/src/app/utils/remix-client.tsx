@@ -177,8 +177,10 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
 
   /** Get the current contract file */
   async getContract(): Promise<Contract> {
-    const name = await this.getContractName()
-    if (!name) throw new Error('No contract selected yet')
+    const fileList: string[] = await this.client.call('fileManager', 'fileList', 'src')
+    const name = fileList.find(file => file.endsWith('.csproj')) || ""
+
+    if (!name) throw new Error('No .csproj file found in the src directory')
     
     this.content = {}
 
