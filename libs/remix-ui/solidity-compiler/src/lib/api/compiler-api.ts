@@ -111,7 +111,7 @@ export const CompilerApiMixin = (Base) => class extends Base {
   }
 
   compileWithAELF () {
-    return this.call('aelf', "compile")
+    return this.call('aelf', "aelfCompileCustomAction")
   }
 
   compileWithTruffle (configFile) {
