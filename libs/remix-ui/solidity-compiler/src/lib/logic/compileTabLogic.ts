@@ -151,9 +151,9 @@ export class CompileTabLogic {
       }
       
       // TODO readd saving current file
-      this.api.saveCurrentFile()
-      const currentFile = this.api.currentFile
-      return this.compileFile(currentFile)
+      // this.api.saveCurrentFile()
+      // const currentFile = this.api.currentFile
+      // return this.compileFile(currentFile)
     } catch (err) {
       console.error(err)
     }
