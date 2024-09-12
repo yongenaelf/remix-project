@@ -8,14 +8,11 @@ import { canUseWorker, urlFromVersion, pathToURL } from '@remix-project/remix-so
 import { compilerReducer, compilerInitialState } from './reducers/compiler'
 import { listenToEvents } from './actions/compiler'
 import { getValidLanguage } from '@remix-project/remix-solidity'
-import { CopyToClipboard } from '@remix-ui/clipboard'
 import { configFileContent } from './compilerConfiguration'
 import { appPlatformTypes, platformContext, onLineContext } from '@remix-ui/app'
 import * as packageJson from '../../../../../package.json'
 
 import './css/style.css'
-
-import { CompilerDropdown } from './components/compiler-dropdown'
 
 const defaultPath = 'compiler_config.json'
 
@@ -38,8 +35,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     compiledFileName,
     updateCurrentVersion,
     configurationSettings,
-    isHardhatProject,
-    isTruffleProject,
     isFoundryProject,
     workspaceName,
     configFilePath,
@@ -541,8 +536,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
       })
     }
     updateCurrentVersion(selectedVersion)
-    if (setQueryParameter)
-      api.setCompilerQueryParameters({ version: selectedVersion })
     let url
 
     if (customUrl !== '') {
@@ -556,8 +549,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
       })
       updateCurrentVersion(selectedVersion)
       url = customUrl
-      if (setQueryParameter)
-        api.setCompilerQueryParameters({ version: selectedVersion })
     } else {
       if (checkSpecialChars(selectedVersion)) {
         return console.log('loading ' + selectedVersion + ' not allowed, special chars not allowed.')
@@ -986,69 +977,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
               </div>
             </CustomTooltip>
           </button>
-          <div className="d-flex align-items-center">
-            <button
-              id="compileAndRunBtn"
-              data-id="compilerContainerCompileAndRunBtn"
-              className="btn btn-secondary btn-block d-block w-100 text-break remixui_solidityCompileAndRunButton d-inline-block remixui_disabled mb-1 mt-1"
-              onClick={compileAndRun}
-              disabled={(configFilePath === '' && state.useFileConfiguration) || disableCompileButton}
-            >
-              <CustomTooltip
-                placement={'auto-end'}
-                tooltipId="overlay-tooltip-compile-run"
-                tooltipText={
-                  <div className="text-left">
-                    {!(configFilePath === '' && state.useFileConfiguration) && (
-                      <div>
-                        <b>Ctrl+Shift+S</b> <FormattedMessage id="solidity.tooltipText3" />
-                      </div>
-                    )}
-                    {configFilePath === '' && state.useFileConfiguration && <div> <FormattedMessage id="solidity.noConfigFileSelected" /></div>}
-                  </div>
-                }
-              >
-                <span>
-                  <FormattedMessage id="solidity.compileAndRunScript" />
-                </span>
-              </CustomTooltip>
-            </button>
-            <CustomTooltip
-              placement="top"
-              tooltipId="overlay-tooltip-compile-run-doc"
-              tooltipText={
-                <div className="text-left p-2">
-                  <div><FormattedMessage id="solidity.tooltipText1" /></div>
-                  <pre>
-                    <code>
-                      /**
-                      <br />
-                      * @title ContractName
-                      <br />
-                      * @dev ContractDescription
-                      <br />
-                      * @custom:dev-run-script file_path
-                      <br />
-                      */
-                      <br />
-                      contract ContractName {'{}'}
-                      <br />
-                    </code>
-                  </pre>
-                  <FormattedMessage id="solidity.tooltipText2" />
-                </div>
-              }
-            >
-              <a href="https://remix-ide.readthedocs.io/en/latest/running_js_scripts.html#compile-a-contract-and-run-a-script-on-the-fly" target="_blank">
-                <i className="pl-2 ml-2 fas fa-info text-dark"></i>
-              </a>
-            </CustomTooltip>
-            <CopyToClipboard tip={intl.formatMessage({ id: 'solidity.copyNatSpecTag' })} getContent={() => '@custom:dev-run-script file_path'} direction="top">
-              <button className="btn remixui_copyButton  ml-2 my-1 text-dark">
-                <i className="remixui_copyIcon far fa-copy" aria-hidden="true"></i>
-              </button>
-            </CopyToClipboard>
-          </div>
         </div>
       </article>
     </section>
