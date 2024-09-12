@@ -91,7 +91,7 @@ export const RemixUiStaticAnalyser = (props: RemixUiStaticAnalyserProps) => {
   /**
    * Disable static analysis for contracts whose compiler version is
    * less than 0.4.12
-   * @param version {string} - Solidity compiler version
+   * @param version {string} - Compiler version
    */
   const setDisableForRun = (version: string) => {
     const truncateVersion = (version: string) => {
@@ -100,7 +100,7 @@ export const RemixUiStaticAnalyser = (props: RemixUiStaticAnalyserProps) => {
     }
     if (version && version != '' && !semver.gt(truncateVersion(version), '0.4.12')) {
       setIsSupportedVersion(false)
-      setRunButtonTitle('Select Solidity compiler version greater than 0.4.12.')
+      setRunButtonTitle('Select Compiler version greater than 0.4.12.')
     } else {
       setIsSupportedVersion(true)
       setRunButtonTitle(`${state && state.data && state.file.length > 0 ? 'Run analysis' : 'To run analysis for selected tools, first compile a contract'}`)

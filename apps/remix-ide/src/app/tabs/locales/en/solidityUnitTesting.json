@@ -11,7 +11,7 @@
   "solidityUnitTesting.generateTestsLinkTooltip": "Check out documentation.",
   "solidityUnitTesting.howToUse": "How to use...",
   "solidityUnitTesting.runButtonTitle1": "Run tests",
-  "solidityUnitTesting.runButtonTitle2": "Please select Solidity compiler version greater than 0.4.12.",
+  "solidityUnitTesting.runButtonTitle2": "Please select Compiler version greater than 0.4.12.",
   "solidityUnitTesting.runButtonTitle3": "No solidity file selected",
   "solidityUnitTesting.runButtonTitle4": "The \"Solidity Plugin\" should be activated",
   "solidityUnitTesting.runButtonTitle5": "No test file selected",

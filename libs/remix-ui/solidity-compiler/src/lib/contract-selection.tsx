@@ -176,7 +176,7 @@ export const ContractSelection = (props: ContractSelectionProps) => {
       'Opcodes': 'Assembly opcodes describing the contract',
       'Runtime Bytecode': 'Bytecode storing the state and being executed during normal contract call',
       'bytecode': 'Bytecode being executed during contract creation',
-      'compilerInput': 'Input to the Solidity compiler',
+      'compilerInput': 'Input to the Compiler',
       'functionHashes': 'List of declared function and their corresponding hash',
       'gasEstimates': 'Gas estimation for each function call',
       'metadata': 'Contains all information related to the compilation',

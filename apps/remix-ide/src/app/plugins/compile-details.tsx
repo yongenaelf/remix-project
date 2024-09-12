@@ -9,7 +9,7 @@ const _paq = (window._paq = window._paq || [])
 const profile = {
   name: 'compilationDetails',
   displayName: 'Solidity Compile Details',
-  description: 'Displays details from solidity compiler',
+  description: 'Displays details from compiler',
   location: 'mainPanel',
   methods: ['showDetails'],
   events: []

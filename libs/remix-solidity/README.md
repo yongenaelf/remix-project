@@ -6,7 +6,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ethereum/remix-project/issues)
 
 
-`@remix-project/remix-solidity` is a tool to load and run solidity compiler. It works underneath Remix IDE  "Solidity Compiler" plugin which is used to load different versions of compiler and compile the smart contracts. 
+`@remix-project/remix-solidity` is a tool to load and run compiler. It works underneath Remix IDE  "Compiler" plugin which is used to load different versions of compiler and compile the smart contracts. 
 
 ### Installation
 

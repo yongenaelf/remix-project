@@ -98,7 +98,7 @@ pragma solidity >=0.4.22 <0.9.0;
 import "remix_tests.sol"; 
 
 // This import is required to use custom transaction context
-// Although it may fail compilation in 'Solidity Compiler' plugin
+// Although it may fail compilation in 'Compiler' plugin
 // But it will work fine in 'Solidity Unit Testing' plugin
 import "remix_accounts.sol";
 ${comment}

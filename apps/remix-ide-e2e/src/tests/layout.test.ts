@@ -11,19 +11,19 @@ module.exports = {
     return sources
   },
 
-  'Should pin solidity compiler plugin to the right and switch focus for left side panel to the file-explorer': function (browser: NightwatchBrowser) {
+  'Should pin compiler plugin to the right and switch focus for left side panel to the file-explorer': function (browser: NightwatchBrowser) {
     browser.waitForElementVisible('[data-id="movePluginToRight"]')
       .click('[data-id="movePluginToRight"]')
       .waitForElementVisible('[data-id="movePluginToLeft"]')
       .waitForElementVisible('.pinned-panel h6[data-id="sidePanelSwapitTitle"]')
       .assert.containsText('.sidepanel h6[data-id="sidePanelSwapitTitle"]', 'FILE EXPLORER')
-      .assert.containsText('.pinned-panel h6[data-id="sidePanelSwapitTitle"]', 'SOLIDITY COMPILER')
+      .assert.containsText('.pinned-panel h6[data-id="sidePanelSwapitTitle"]', 'COMPILER')
   },
-  'Should unpin and focus on solidity compiler in the left side panel': function (browser: NightwatchBrowser) {
+  'Should unpin and focus on compiler in the left side panel': function (browser: NightwatchBrowser) {
     browser.waitForElementVisible('[data-id="movePluginToLeft"]')
       .click('[data-id="movePluginToLeft"]')
       .waitForElementVisible('[data-id="movePluginToRight"]')
-      .assert.containsText('.sidepanel h6[data-id="sidePanelSwapitTitle"]', 'SOLIDITY COMPILER')
+      .assert.containsText('.sidepanel h6[data-id="sidePanelSwapitTitle"]', 'COMPILER')
       .waitForElementNotVisible('.pinned-panel h6[data-id="sidePanelSwapitTitle"]')
   },
   'Should pin a plugin while a another plugin is already pinned': function (browser: NightwatchBrowser) {
@@ -31,12 +31,12 @@ module.exports = {
       .click('[data-id="movePluginToRight"]')
       .waitForElementVisible('[data-id="movePluginToLeft"]')
       .waitForElementVisible('.pinned-panel h6[data-id="sidePanelSwapitTitle"]')
-      .assert.containsText('.pinned-panel h6[data-id="sidePanelSwapitTitle"]', 'SOLIDITY COMPILER')
+      .assert.containsText('.pinned-panel h6[data-id="sidePanelSwapitTitle"]', 'COMPILER')
       .clickLaunchIcon('udapp')
       .click('[data-id="movePluginToRight"]')
       .waitForElementVisible('[data-id="movePluginToLeft"]')
       .assert.containsText('.pinned-panel h6[data-id="sidePanelSwapitTitle"]', 'DEPLOY & RUN TRANSACTIONS')
-      .assert.containsText('.sidepanel h6[data-id="sidePanelSwapitTitle"]', 'SOLIDITY COMPILER')
+      .assert.containsText('.sidepanel h6[data-id="sidePanelSwapitTitle"]', 'COMPILER')
   },
   'Should pin a pinned plugin to the right after reloading the page': function (browser: NightwatchBrowser) {
     browser.refreshPage()

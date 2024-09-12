@@ -1,5 +1,5 @@
 {
-  "solidity.displayName": "Solidity compiler",
+  "solidity.displayName": "Compiler",
   "solidity.openaigptMessage": "solidity code: {content}\n error message: {messageText}\n explain why the error occurred and how to fix it.",
 
   "solidity._comment_compiler-container.tsx": "libs/remix-ui/solidity-compiler/src/lib/compiler-container.tsx",
@@ -93,6 +93,6 @@
   "solidity.storageLayout": "See the Storage Layout documentation.",
   "solidity.devdoc": "Developer documentation (natspec)",
   "solidity.userdoc": "User documentation (natspec)",
-  "solidity.compilerInput": "Input to the Solidity compiler",
+  "solidity.compilerInput": "Input to the Compiler",
   "solidity.swarmLocation": "Swarm url where all metadata information can be found (contract needs to be published first)"
 }

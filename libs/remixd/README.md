@@ -80,9 +80,9 @@ Furthermore:
 remixd creates a websocket connections with Remix IDE on different ports. Ports are defined according to specific purpose. Port usage details are as:
 
 - **65520** : For `remixd` websocket listener, to share a project from local device with Remix IDE. Shared folder will be loaded in the Remix IDE File Explorer workspace named localhost [See more](https://remix-ide.readthedocs.io/en/latest/remixd.html)
-- **65522** : For `Hardhat` websocket listener, to enable the Hardhat Compilation using Remix IDE Solidity Compiler plugin, if shared folder is a Hardhat project [See more](https://remix-ide.readthedocs.io/en/latest/hardhat.html)
+- **65522** : For `Hardhat` websocket listener, to enable the Hardhat Compilation using Remix IDE Compiler plugin, if shared folder is a Hardhat project [See more](https://remix-ide.readthedocs.io/en/latest/hardhat.html)
 - **65523** : For `Slither` websocket listener, to enable the Slither Analysis using Remix IDE Solidity Static Analysis plugin [See more](https://remix-ide.readthedocs.io/en/latest/slither.html)
-- **65524** : For `Truffle` websocket listener, to enable the Truffle Compilation using Remix IDE Solidity Compiler plugin, if shared folder is a Truffle project [See more](https://remix-ide.readthedocs.io/en/latest/truffle.html)
+- **65524** : For `Truffle` websocket listener, to enable the Truffle Compilation using Remix IDE Compiler plugin, if shared folder is a Truffle project [See more](https://remix-ide.readthedocs.io/en/latest/truffle.html)
 
 Note: Please make sure your system is secured enough and these ports are not opened nor forwarded.
  

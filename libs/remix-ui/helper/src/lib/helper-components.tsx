@@ -12,7 +12,7 @@ export const fileChangedToastMsg = (from: string, path: string) => (
 
 export const compilerConfigChangedToastMsg = (from: string, value: string) => (
   <div>
-    <b>{from}</b> is updating the <b>Solidity compiler configuration</b>.<pre className="text-left">{value}</pre>
+    <b>{from}</b> is updating the <b>Compiler configuration</b>.<pre className="text-left">{value}</pre>
   </div>
 )
 

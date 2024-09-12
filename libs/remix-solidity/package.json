@@ -1,7 +1,7 @@
 {
   "name": "@remix-project/remix-solidity",
   "version": "0.5.42",
-  "description": "Tool to load and run Solidity compiler",
+  "description": "Tool to load and run Compiler",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "contributors": [

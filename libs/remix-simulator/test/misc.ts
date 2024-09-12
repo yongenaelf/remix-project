@@ -68,7 +68,7 @@ describe('Misc', () => {
   })
 
   describe('eth_compileSolidity', () => {
-    it('get unsupported result when requesting solidity compiler', async () => {
+    it('get unsupported result when requesting compiler', async () => {
       web3['_requestManager'].send({ method: 'eth_compileSolidity', params: []})
         .then(result => assert.equal(result, 'unsupported'))
         .catch(err => { throw new Error(err) })

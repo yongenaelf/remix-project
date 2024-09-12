@@ -32,7 +32,7 @@ export class FetchAndCompile extends Plugin {
   /**
    * Fetch compilation metadata from source-Verify from a given @arg contractAddress - https://github.com/ethereum/source-verify
    * Put the artifacts in the file explorer
-   * Compile the code using Solidity compiler
+   * Compile the code using Compiler
    * Returns compilation data
    *
    * @param {string} contractAddress - Address of the contract to resolve
