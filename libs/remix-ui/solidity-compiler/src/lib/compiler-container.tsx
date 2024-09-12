@@ -575,48 +575,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     return !version.includes('nightly') || (version.includes('nightly') && state.includeNightlies)
   }
 
-  const promptCompiler = () => {
-    // custom url https://solidity-blog.s3.eu-central-1.amazonaws.com/data/08preview/soljson.js
-    modal(
-      intl.formatMessage({
-        id: 'solidity.addACustomCompiler'
-      }),
-      promptMessage('URL'),
-      intl.formatMessage({ id: 'solidity.ok' }),
-      addCustomCompiler,
-      false,
-      intl.formatMessage({ id: 'solidity.cancel' }),
-      () => {}
-    )
-  }
-
-  const showCompilerLicense = () => {
-    modal(
-      intl.formatMessage({ id: 'solidity.compilerLicense' }),
-      state.compilerLicense ? state.compilerLicense : intl.formatMessage({ id: 'solidity.compilerLicenseMsg3' }),
-      intl.formatMessage({ id: 'solidity.ok' }),
-      () => {}
-    )
-  }
-
-  const promptMessage = (message) => {
-    return (
-      <>
-        <span>{message}</span>
-        <input type="text" data-id="modalDialogCustomPromptCompiler" className="form-control" ref={promptMessageInput} />
-      </>
-    )
-  }
-
-  const addCustomCompiler = () => {
-    const url = promptMessageInput.current.value
-
-    setState((prevState) => {
-      return { ...prevState, selectedVersion: url }
-    })
-    _updateVersionSelector(state.defaultVersion, url)
-  }
-
   const handleLoadVersion = (value) => {
     if (value !== 'builtin' && !pathToURL[value]) return
     setState((prevState) => {
@@ -633,20 +591,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
       handleLanguageChange('Solidity')
       compileTabLogic.setLanguage('Solidity')
     }
-  }
-
-  const handleAutoCompile = (e) => {
-    const checked = e.target.checked
-
-    api.setAppParameter('autoCompile', checked)
-    checked && compile()
-    setState((prevState) => {
-      return {
-        ...prevState,
-        autoCompile: checked,
-        matomoAutocompileOnce: state.matomoAutocompileOnce || checked
-      }
-    })
   }
 
   const handleOptimizeChange = (value) => {
@@ -675,34 +619,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     })
   }
 
-  const handleHideWarningsChange = (e) => {
-    const checked = e.target.checked
-
-    api.setAppParameter('hideWarnings', checked)
-    state.autoCompile && compile()
-    setState((prevState) => {
-      return { ...prevState, hideWarnings: checked }
-    })
-  }
-
-  const handleNightliesChange = (e) => {
-    const checked = e.target.checked
-
-    if (!checked) handleLoadVersion(state.defaultVersion)
-    api.setAppParameter('includeNightlies', checked)
-    setState((prevState) => {
-      return { ...prevState, includeNightlies: checked }
-    })
-  }
-
-  const handleOnlyDownloadedChange = (e) => {
-    const checked = e.target.checked
-    if (!checked) handleLoadVersion(state.defaultVersion)
-    setState((prevState) => {
-      return { ...prevState, onlyDownloaded: checked }
-    })
-  }
-
   const handleLanguageChange = (value) => {
     compileTabLogic.setLanguage(value)
     state.autoCompile && compile()
@@ -724,20 +640,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     })
   }
 
-  const updatehhCompilation = (event) => {
-    const checked = event.target.checked
-    if (checked) setTruffleCompilation(false) // wayaround to reset the variable
-    sethhCompilation(checked)
-    api.setAppParameter('hardhat-compilation', checked)
-  }
-
-  const updateTruffleCompilation = (event) => {
-    const checked = event.target.checked
-    if (checked) sethhCompilation(false) // wayaround to reset the variable
-    setTruffleCompilation(checked)
-    api.setAppParameter('truffle-compilation', checked)
-  }
-
   /*
     The following functions map with the above event handlers.
     They are an external API for modifying the compiler configuration.
@@ -750,198 +652,15 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
     onChangeRuns(settings.runs)
   }
 
-  const toggleConfigurations = () => {
-    setToggleExpander(!toggleExpander)
-  }
-
   return (
     <section>
       <article>
-        <div className="d-flex px-4 remixui_compilerConfigSection justify-content-between" onClick={toggleConfigurations}>
-          <div className="d-flex">
-            <label className="mt-1 remixui_compilerConfigSection">
-              <FormattedMessage id="solidity.advancedConfigurations" />
-            </label>
-          </div>
-          <div>
-            <span data-id="scConfigExpander" onClick={toggleConfigurations}>
-              <i className={!toggleExpander ? 'fas fa-angle-right' : 'fas fa-angle-down'} aria-hidden="true"></i>
-            </span>
-          </div>
-        </div>
-        <div className={`px-4 pb-4 border-bottom flex-column ${toggleExpander ? 'd-flex' : 'd-none'}`}>
-          <div className="d-flex pb-1 remixui_compilerConfig custom-control custom-radio">
-            <input
-              className="custom-control-input"
-              type="radio"
-              name="configradio"
-              value="manual"
-              onChange={toggleConfigType}
-              checked={!state.useFileConfiguration}
-              id="scManualConfig"
-            />
-            <label className="form-check-label custom-control-label" htmlFor="scManualConfig" data-id="scManualConfiguration">
-              <FormattedMessage id="solidity.compilerConfiguration" />
-            </label>
-          </div>
-          <div className={`flex-column 'd-flex'}`}>
-            <div className="mb-2 ml-4">
-              <label className="remixui_compilerLabel form-check-label" htmlFor="compilierLanguageSelector">
-                <FormattedMessage id="solidity.language" />
-              </label>
-              <CustomTooltip
-                placement="right"
-                tooltipId="compilerLabelTooltip"
-                tooltipClasses="text-nowrap"
-                tooltipText={
-                  <span>
-                    <FormattedMessage id="solidity.tooltipText6" />
-                  </span>
-                }
-              >
-                <div id="compilerLanguageSelectorWrapper">
-                  <select
-                    onChange={(e) => handleLanguageChange(e.target.value)}
-                    disabled={state.useFileConfiguration}
-                    value={state.language}
-                    className="custom-select"
-                    id="compilierLanguageSelector"
-                    style={{
-                      pointerEvents: state.useFileConfiguration ? 'none' : 'auto'
-                    }}
-                  >
-                    <option data-id={state.language === 'Solidity' ? 'selected' : ''} value="Solidity">
-                      Solidity
-                    </option>
-                    <option data-id={state.language === 'Yul' ? 'selected' : ''} value="Yul">
-                      Yul
-                    </option>
-                  </select>
-                </div>
-              </CustomTooltip>
-            </div>
-            <div className="mb-2 ml-4">
-              <label className="remixui_compilerLabel form-check-label" htmlFor="evmVersionSelector">
-                <FormattedMessage id="solidity.evmVersion" />
-              </label>
-              <select
-                value={state.evmVersion}
-                onChange={(e) => handleEvmVersionChange(e.target.value)}
-                disabled={state.useFileConfiguration}
-                className="custom-select"
-                id="evmVersionSelector"
-              >
-                {compileTabLogic.evmVersions.map((version, index) => (
-                  <option key={index} data-id={state.evmVersion === version ? 'selected' : ''} value={version}>
-                    {version}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="mt-1 mt-3 border-dark pb-3 ml-4 remixui_compilerConfig custom-control custom-checkbox">
-              <div className="justify-content-between align-items-center d-flex">
-                <input
-                  onChange={(e) => {
-                    handleOptimizeChange(e.target.checked)
-                  }}
-                  disabled={state.useFileConfiguration}
-                  className="custom-control-input"
-                  id="optimize"
-                  type="checkbox"
-                  checked={state.optimize}
-                />
-                <label className="form-check-label custom-control-label" htmlFor="optimize">
-                  <FormattedMessage id="solidity.enableOptimization" />
-                </label>
-                <input
-                  min="1"
-                  className="custom-select ml-2 remixui_runs"
-                  id="runs"
-                  placeholder="200"
-                  value={state.runs}
-                  type="number"
-                  title={intl.formatMessage({ id: 'solidity.inputTitle2' })}
-                  onChange={(e) => onChangeRuns(e.target.value)}
-                  disabled={!state.optimize || state.useFileConfiguration}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="d-flex pb-1 remixui_compilerConfig custom-control custom-radio">
-            <input
-              className="custom-control-input"
-              type="radio"
-              name="configradio"
-              value="file"
-              onChange={toggleConfigType}
-              checked={state.useFileConfiguration}
-              id="scFileConfig"
-            />
-            <label className="form-check-label custom-control-label" htmlFor="scFileConfig" data-id="scFileConfiguration">
-              <FormattedMessage id="solidity.useConfigurationFile" />
-            </label>
-          </div>
-          <div className={`pt-2 ml-4 ml-2 align-items-start justify-content-between d-flex`}>
-            {!showFilePathInput && state.useFileConfiguration && (
-              <CustomTooltip
-                placement="bottom"
-                tooltipId="configfileTooltip"
-                tooltipClasses="text-nowrap"
-                tooltipText={
-                  <span>
-                    <FormattedMessage id="solidity.tooltipText4" />
-                  </span>
-                }
-              >
-                <span
-                  onClick={
-                    configFilePath === ''
-                      ? () => {}
-                      : async () => {
-                        await openFile()
-                      }
-                  }
-                  className="py-2 remixui_compilerConfigPath"
-                >
-                  {configFilePath === '' ? intl.formatMessage({ id: 'solidity.noFileSelected1' }) : configFilePath}
-                </span>
-              </CustomTooltip>
-            )}
-            {!showFilePathInput && !state.useFileConfiguration && <span className="py-2 text-secondary">{configFilePath}</span>}
-            <input
-              ref={configFilePathInput}
-              className={`py-0 my-0 form-control ${showFilePathInput ? 'd-flex' : 'd-none'}`}
-              placeholder={'/folder_path/file_name.json'}
-              title={intl.formatMessage({ id: 'solidity.inputTitle1' })}
-              disabled={!state.useFileConfiguration}
-              data-id="scConfigFilePathInput"
-              onKeyPress={(event) => {
-                if (event.key === 'Enter') {
-                  handleConfigPathChange()
-                }
-              }}
-            />
-            {!showFilePathInput && (
-              <button
-                disabled={!state.useFileConfiguration}
-                data-id="scConfigChangeFilePath"
-                className="btn btn-sm btn-secondary"
-                onClick={() => {
-                  setShowFilePathInput(true)
-                }}
-              >
-                <FormattedMessage id="solidity.change" />
-              </button>
-            )}
-          </div>
-        </div>
         <div className="px-4">
           <button
             id="compileBtn"
             data-id="compilerContainerCompileBtn"
             className="btn btn-primary btn-block d-block w-100 text-break remixui_disabled mb-1 mt-3"
             onClick={compile}
-            disabled={(configFilePath === '' && state.useFileConfiguration) || disableCompileButton}
           >
             <CustomTooltip
               placement="auto"
@@ -950,7 +669,7 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
                 <div className="text-left">
                   {!(configFilePath === '' && state.useFileConfiguration) && (
                     <div>
-                      <b>Ctrl+S</b> <FormattedMessage id="solidity.toCompile" /> {state.compiledFileName.endsWith('.sol') ? state.compiledFileName : null}{' '}
+                      <b>Ctrl+S</b> <FormattedMessage id="solidity.toCompile" />
                     </div>
                   )}
                   {configFilePath === '' && state.useFileConfiguration && <div> <FormattedMessage id="solidity.noConfigFileSelected" /></div>}
@@ -962,16 +681,6 @@ export const CompilerContainer = (props: CompilerContainerProps) => {
                 <div className="text-truncate overflow-hidden text-nowrap">
                   <span>
                     <FormattedMessage id="solidity.compile" />
-                  </span>
-                  <span className="ml-1 text-nowrap">
-                    {typeof state.compiledFileName === 'string'
-                      ? extractNameFromKey(state.compiledFileName) ||
-                        `<${intl.formatMessage({
-                          id: 'solidity.noFileSelected'
-                        })}>`
-                      : `<${intl.formatMessage({
-                        id: 'solidity.noFileSelected'
-                      })}>`}
                   </span>
                 </div>
               </div>
