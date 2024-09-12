@@ -89,6 +89,7 @@ export class CompileTabLogic {
    */
   setLanguage (lang) {
     this.language = lang
+    this.api.setCompilerQueryParameters({ language: lang })
     this.compiler.set('language', lang)
   }
 
