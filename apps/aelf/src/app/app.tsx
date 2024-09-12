@@ -42,7 +42,7 @@ const App = () => {
         console.log(err)
       }
       try {
-        const name = await remixClient.getContractName() // throw if no file are selected
+        const name = await remixClient.getCurrentFile() // throw if no file are selected
         setContract(name)
       } catch (e) {}
     }

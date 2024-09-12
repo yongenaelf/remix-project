@@ -150,8 +150,8 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
     await this.client.call('editor', 'clearAnnotations')
   }
 
-  /** Get the name of the current contract */
-  async getContractName(): Promise<string> {
+  /** Get the name of the currently selected file */
+  async getCurrentFile(): Promise<string> {
     await this.client.onload()
     return this.client.call('fileManager', 'getCurrentFile')
   }
@@ -177,10 +177,13 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
 
   /** Get the current contract file */
   async getContract(): Promise<Contract> {
-    const fileList: string[] = await this.client.call('fileManager', 'fileList', 'src')
+    const currentFile = await this.getCurrentFile()
+    const currentFolder = currentFile.split('/').slice(0, -1).join('/')
+
+    const fileList: string[] = await this.client.call('fileManager', 'fileList', currentFolder)
     const name = fileList.find(file => file.endsWith('.csproj')) || ""
 
-    if (!name) throw new Error('No .csproj file found in the src directory')
+    if (!name) throw new Error('No .csproj file found in the directory')
     
     this.content = {}
 
