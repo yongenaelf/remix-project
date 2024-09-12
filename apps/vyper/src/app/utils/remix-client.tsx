@@ -45,9 +45,10 @@ export class RemixClient extends PluginClient<any, CustomRemixApi> {
 
   async vyperCompileCustomAction(action?: customAction) {
     //read selected contract from file explorer and create contract type
-    const contract = await this.getContract()
+    // const contract = await this.getContract()
     //compile contract
-    await compileContract(contract.name, this.compilerUrl)
+    // await compileContract(contract.name, this.compilerUrl)
+    alert("clicked compile")
   }
 
   /** Load Ballot contract example into the file manager */

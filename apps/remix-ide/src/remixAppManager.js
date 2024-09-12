@@ -346,9 +346,9 @@ export class RemixAppManager extends PluginManager {
     await this.call('filePanel', 'registerContextMenuItem', {
       id: 'vyper',
       name: 'vyperCompileCustomAction',
-      label: 'Compile for Vyper',
+      label: 'Compile aelf smart contract',
       type: [],
-      extension: ['.vy'],
+      extension: ['.csproj'],
       path: [],
       pattern: [],
       sticky: true,
