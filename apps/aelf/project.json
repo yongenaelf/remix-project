@@ -1,0 +1,69 @@
+{
+  "name": "aelf",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/aelf/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "development",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/aelf",
+        "index": "apps/aelf/src/index.html",
+        "baseHref": "./",
+        "main": "apps/aelf/src/main.tsx",
+        "polyfills": "apps/aelf/src/polyfills.ts",
+        "tsConfig": "apps/aelf/tsconfig.app.json",
+        "assets": [
+          "apps/aelf/src/favicon.ico",
+          "apps/aelf/src/assets",
+          "apps/aelf/src/profile.json"
+        ],
+        "styles": ["apps/aelf/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/aelf/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/aelf/src/environments/environment.ts",
+              "with": "apps/aelf/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/aelf/**/*.ts"],
+        "eslintConfig": "apps/aelf/.eslintrc"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "aelf:build",
+        "hmr": true,
+        "baseHref": "/"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "aelf:build:development",
+          "port": 5002
+        },
+        "production": {
+          "buildTarget": "aelf:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

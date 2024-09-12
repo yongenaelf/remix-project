@@ -222,7 +222,7 @@ export const TabsUI = (props: TabsUIProps) => {
                     break
                   case 'vy':
                   case 'csproj':
-                    await props.plugin.call('vyper', 'vyperCompileCustomAction')
+                    await props.plugin.call('aelf', 'aelfCompileCustomAction')
                     break
                   default:
                     break
