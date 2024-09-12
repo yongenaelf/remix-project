@@ -91,7 +91,7 @@ let requiredModules = [ // services + layout views + system views
 // dependentModules shouldn't be manually activated (e.g hardhat is activated by remixd)
 const dependentModules = ['foundry', 'hardhat', 'truffle', 'slither']
 
-const loadLocalPlugins = ['doc-gen', 'doc-viewer', 'etherscan', 'vyper', 'aelf', 'solhint', 'walletconnect', 'circuit-compiler', 'learneth', 'quick-dapp']
+const loadLocalPlugins = ['doc-gen', 'doc-viewer', 'etherscan', 'vyper', 'solhint', 'walletconnect', 'circuit-compiler', 'learneth', 'quick-dapp']
 
 const sensitiveCalls = {
   fileManager: ['writeFile', 'copyFile', 'rename', 'copyDir'],
@@ -111,7 +111,6 @@ export function isNative(name) {
 
   // nativePlugin allows to bypass the permission request
   const nativePlugins = [
-    'aelf',
     'vyper',
     'workshops',
     'debugger',
@@ -350,17 +349,6 @@ export class RemixAppManager extends PluginManager {
       label: 'Compile for Vyper',
       type: [],
       extension: ['.vy'],
-      path: [],
-      pattern: [],
-      sticky: true,
-      group: 7
-    })
-    await this.call('filePanel', 'registerContextMenuItem', {
-      id: 'aelf',
-      name: 'aelfCompileCustomAction',
-      label: 'Compile for aelf',
-      type: [],
-      extension: ['.csproj'],
       path: [],
       pattern: [],
       sticky: true,
