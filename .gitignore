@@ -67,3 +67,6 @@ apps/remixdesktop/build*
 apps/remixdesktop/reports/
 apps/remixdesktop/logs/
 logs
+
+bin/
+obj/
