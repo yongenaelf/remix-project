@@ -208,22 +208,26 @@ export const TabsUI = (props: TabsUIProps) => {
               onClick={async () => {
                 const path = active().substr(active().indexOf('/') + 1, active().length)
                 const content = await props.plugin.call('fileManager', 'readFile', path)
-                if (tabsState.currentExt === 'js' || tabsState.currentExt === 'ts') {
-                  await props.plugin.call('scriptRunner', 'execute', content, path)
-                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
-                } else if (tabsState.currentExt === 'sol' || tabsState.currentExt === 'yul') {
-                  await props.plugin.call('solidity', 'compile', path)
-                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
-                } else if (tabsState.currentExt === 'circom') {
-                  await props.plugin.call('circuit-compiler', 'compile', path)
-                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
-                } else if (tabsState.currentExt === 'vy') {
-                  await props.plugin.call('vyper', 'vyperCompileCustomAction')
-                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
-                } else if (tabsState.currentExt === 'csproj') {
-                  await props.plugin.call('aelf', 'aelfCompileCustomAction')
-                  _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
+                switch (tabsState.currentExt) {
+                  case 'js':
+                  case 'ts':
+                    await props.plugin.call('scriptRunner', 'execute', content, path)
+                    break
+                  case 'sol':
+                  case 'yul':
+                    await props.plugin.call('solidity', 'compile', path)
+                    break
+                  case 'circom':
+                    await props.plugin.call('circuit-compiler', 'compile', path)
+                    break
+                  case 'vy':
+                  case 'csproj':
+                    await props.plugin.call('vyper', 'vyperCompileCustomAction')
+                    break
+                  default:
+                    break
                 }
+                _paq.push(['trackEvent', 'editor', 'clickRunFromEditor', tabsState.currentExt])
               }}
             >
               <i className="fas fa-play"></i>

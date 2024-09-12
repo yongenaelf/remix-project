@@ -362,7 +362,7 @@ export const CompilerApiMixin = (Base) => class extends Base {
         } else if (this.currentFile && this.currentFile.endsWith('.vy')) {
           await this.call('vyper', 'vyperCompileCustomAction', this.currentFile)
         } else if (this.currentFile && this.currentFile.endsWith('.csproj')) {
-          await this.call('aelf', 'aelfCompileCustomAction', this.currentFile)
+          await this.call('vyper', 'vyperCompileCustomAction', this.currentFile)
         }
       }
     }
