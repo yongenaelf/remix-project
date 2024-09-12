@@ -282,7 +282,7 @@ export async function compileContract(contract: string, compilerUrl: string, set
     }
     // try {
     output = await compile(compilerUrl, _contract)
-    remixClient.log(output.compileCode)
+    remixClient.log("Build succeeded.")
     // if (output.status === 'failed') {
     //   remixClient.changeStatus({
     //     key: 'failed',
@@ -307,9 +307,10 @@ export async function compileContract(contract: string, compilerUrl: string, set
     setLoadingSpinnerState && setLoadingSpinnerState(false)
     // const data = toStandardOutput(_contract.name, output)
     // remixClient.compilationFinish(_contract.name, _contract.content, data)
-    // const contractName = _contract['name']
+    const contractName = _contract['name']
     // const compileResult = compileReturnType(output, contractName)
-    // remixClient.eventEmitter.emit('setOutput', { contractName, compileResult })
+    const compileResult = output.compileCode
+    remixClient.eventEmitter.emit('setOutput', { contractName, compileResult })
   } catch (err: any) {
     remixClient.changeStatus({
       key: 'failed',
